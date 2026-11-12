@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Élixir Parfumerie | 5. Aloqa, Xarita, VIP Konsyerj va Buyurtma Kuzatuvi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Luxury Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F5E6B3',
+                            dark: '#9A7B1C',
+                            muted: 'rgba(212, 175, 55, 0.18)'
+                        },
+                        obsidian: '#09090C',
+                        charcoal: '#121217',
+                        surface: '#1A1A22',
+                        pearl: '#FAF7F2',
+                        ivory: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* =========================================================
+           1. PRELOADER CURTAIN VA SAHIFALARARO O'TISH ANIMATSIYASI
+           ========================================================= */
+        #pageCurtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+        }
+        .curtain-panel-left,
+        .curtain-panel-right {
+            position: absolute;
+            top: 0;
+            width: 50.5%;
+            height: 100%;
+            background: radial-gradient(circle at center, #15151e 0%, #07070a 100%);
+            transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1;
+        }
+        .curtain-panel-left { left: 0; border-right: 1px solid rgba(212, 175, 55, 0.35); }
+        .curtain-panel-right { right: 0; border-left: 1px solid rgba(212, 175, 55, 0.35); }
+        #pageCurtain.open .curtain-panel-left { transform: translateX(-102%); }
+        #pageCurtain.open .curtain-panel-right { transform: translateX(102%); }
+        #pageCurtain.open .curtain-center-box {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.4s ease;
+        }
+        #pageCurtain.gone { display: none; pointer-events: none; }
+
+        .svg-draw-line {
+            stroke-dasharray: 650;
+            stroke-dashoffset: 650;
+            animation: drawStroke 2s ease forwards;
+        }
+        @keyframes drawStroke { to { stroke-dashoffset: 0; } }
+
+        /* =========================================================
+           2. GLASSMORPHISM, GRADIENT VA KARTA EFFEKTALARI
+           ========================================================= */
+        .glass-header {
+            background: rgba(250, 247, 242, 0.86);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+        }
+        .dark .glass-header {
+            background: rgba(9, 9, 12, 0.86);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFF5C0 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090C; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-pearl dark:bg-obsidian text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-gold selection:text-black overflow-x-hidden transition-colors duration-500">
+
+    <!-- =========================================================
+         1. KIRISH VA SAHIFALARARO PARDA ANIMATSIYASI
+         ========================================================= -->
+    <div id="pageCurtain">
+        <div class="curtain-panel-left"></div>
+        <div class="curtain-panel-right"></div>
+        <div class="curtain-center-box relative z-10 flex flex-col items-center text-center px-6">
+            <svg class="w-20 h-20 mb-4 text-gold" viewBox="0 0 100 100" fill="none">
+                <path d="M50 12C33.4315 12 20 25.4315 20 42C20 64.5 50 88 50 88C50 88 80 64.5 80 42C80 25.4315 66.5685 12 50 12Z" stroke="#D4AF37" stroke-width="2.5" class="svg-draw-line"/>
+                <circle cx="50" cy="42" r="12" stroke="#D4AF37" stroke-width="2" class="svg-draw-line"/>
+            </svg>
+            <span class="text-[10px] uppercase tracking-[0.45em] text-gold block mb-1">Sahifa 05 / 05 • VIP Concierge & Boutiques</span>
+            <h1 class="font-serif text-3xl sm:text-4xl text-white font-bold tracking-[0.2em] mb-4">L'ÉLIXIR CONCIERGE</h1>
+            <div class="w-56 h-[2px] bg-white/10 rounded-full overflow-hidden mb-2">
+                <div id="curtainProgress" class="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light w-0 transition-all duration-150"></div>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gold font-mono tracking-widest">
+                <span id="curtainStatusText">KONSYERJ MARKAZI YUKLANMOQDA</span>
+                <span id="curtainPercent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         2. YUQORI VIP AXBOROT PANELI
+         ========================================================= -->
+    <div class="bg-obsidian text-gray-300 text-xs py-2.5 px-4 border-b border-gold/20 relative z-40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-gold text-black font-bold text-[10px] uppercase">24/7 VIP BOT</span>
+                <span data-i18n="top_promo">Toshkent va Samarqanddagi VIP zalimizga tashrif buyuring yoki buyurtmangizni #ELX kodi orqali kuzating!</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-[11px]">
+                <a href="tel:+998712008899" class="hover:text-gold transition"><i class="fas fa-phone text-gold mr-1"></i>+998 (71) 200-88-99</a>
+                <span class="text-emerald-400 font-semibold"><i class="fab fa-telegram mr-1"></i>Telegram Bot Connected (#8846649798)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         3. MULTI-PAGE HEADER (5 TA SAHIFA NAVIGATSIYASI)
+         ========================================================= -->
+    <header class="sticky top-0 z-40 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="page-link flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 rounded-full border-2 border-gold flex items-center justify-center bg-obsidian text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300">
+                    <i class="fas fa-crown text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest block leading-none dark:text-white">L'ÉLIXIR</span>
+                    <span class="text-[9px] uppercase tracking-[0.38em] text-gold block mt-0.5">Haute Parfumerie</span>
+                </div>
+            </a>
+
+            <!-- 5 ta Sahifa Menyusi (5-Sahifa Aktiv) -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-[0.18em] font-semibold">
+                <a href="index.html" class="page-link hover:text-gold transition pb-1.5 flex items-center gap-1.5">
+                    <i class="fas fa-house text-[10px] text-gold"></i>
+                    <span data-i18n="nav_1">1. Bosh sahifa</span>
+                </a>
+                <a href="catalog.html" class="page-link hover:text-gold transition pb-1.5 flex items-center gap-1.5">
+                    <i class="fas fa-grip text-[10px] text-gold"></i>
+                    <span data-i18n="nav_2">2. Katalog</span>
+                </a>
+                <a href="collections.html" class="page-link hover:text-gold transition pb-1.5 flex items-center gap-1.5">
+                    <i class="fas fa-gem text-[10px] text-gold"></i>
+                    <span data-i18n="nav_3">3. VIP Kolleksiya</span>
+                </a>
+                <a href="about.html" class="page-link hover:text-gold transition pb-1.5 flex items-center gap-1.5">
+                    <i class="fas fa-flask text-[10px] text-gold"></i>
+                    <span data-i18n="nav_4">4. Brend & Notalar</span>
+                </a>
+                <a href="contact.html" class="page-link text-gold border-b-2 border-gold pb-1.5 flex items-center gap-1.5">
+                    <i class="fab fa-telegram text-xs"></i>
+                    <span data-i18n="nav_5">5. Aloqa & Xarita</span>
+                </a>
+            </nav>
+
+            <!-- O'ng Tomon Boshqaruv Tugmalari -->
+            <div class="flex items-center gap-2.5 sm:gap-3.5">
+                <select id="langSelect" aria-label="Language" class="bg-gray-200/80 dark:bg-white/10 text-xs font-bold uppercase px-3 py-2.5 rounded-xl border border-gold/30 focus:outline-none focus:border-gold cursor-pointer">
+                    <option value="uz" class="text-black">🇺🇿 O'Z</option>
+                    <option value="en" class="text-black">🇬🇧 EN</option>
+                    <option value="ru" class="text-black">🇷🇺 РУ</option>
+                </select>
+
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition">
+                    <i class="fas fa-sun hidden dark:inline text-gold"></i>
+                    <i class="fas fa-moon dark:hidden text-gray-800"></i>
+                </button>
+
+                <button onclick="openDrawer('wishDrawer')" class="relative w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition" title="Sevimlilar">
+                    <i class="far fa-heart"></i>
+                    <span id="wishCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gold text-black text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+
+                <button onclick="openDrawer('cartDrawer')" class="relative w-10 h-10 rounded-xl bg-gold text-black flex items-center justify-center hover:bg-gold-light transition shadow-lg shadow-gold/20" title="Savat">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-obsidian text-gold border border-gold text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+
+                <button onclick="toggleMobileNav()" class="lg:hidden w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobil Menyu -->
+        <div id="mobileNavBox" class="hidden lg:hidden bg-white dark:bg-charcoal border-b border-gold/30 px-6 py-5 space-y-3 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="page-link block py-2 hover:text-gold transition pl-3" data-i18n="nav_1">1. Bosh sahifa (index.html)</a>
+            <a href="catalog.html" class="page-link block py-2 hover:text-gold transition pl-3" data-i18n="nav_2">2. Katalog (catalog.html)</a>
+            <a href="collections.html" class="page-link block py-2 hover:text-gold transition pl-3" data-i18n="nav_3">3. VIP Kolleksiya (collections.html)</a>
+            <a href="about.html" class="page-link block py-2 hover:text-gold transition pl-3" data-i18n="nav_4">4. Brend & Notalar (about.html)</a>
+            <a href="contact.html" class="page-link block py-2 text-gold border-l-2 border-gold pl-3" data-i18n="nav_5">5. Aloqa & Xarita (contact.html)</a>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         4. HERO BANNER: VIP KONSYERJ, BUTIKLAR VA KUZATUV
+         ========================================================= -->
+    <section class="relative py-16 sm:py-24 bg-obsidian text-white overflow-hidden border-b border-gold/30">
+        <div class="absolute inset-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1800&q=85" alt="VIP Boutique Interior" class="w-full h-full object-cover" onerror="fallbackPerfumeImg(this, 'Tashkent Flagship')">
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/90 to-obsidian/60"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                <a href="index.html" class="page-link hover:text-gold transition"><i class="fas fa-house mr-1"></i>Bosh sahifa</a>
+                <span>/</span>
+                <span class="text-gold font-semibold" data-i18n="bread_contact">5. Aloqa, Xarita, Buyurtma Kuzatuvi va Telegram Konsyerj</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                <div class="lg:col-span-8 space-y-4">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs uppercase tracking-[0.25em]">
+                        <i class="fab fa-telegram"></i>
+                        <span data-i18n="hero_badge">Salon Privé • Tashkent & Samarkand</span>
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">
+                        <span data-i18n="hero_title_1">VIP Konsyerj Xizmati &</span>
+                        <span class="gold-text italic block mt-1" data-i18n="hero_title_2">Flagman Butiklarimiz</span>
+                    </h1>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-2xl leading-relaxed" data-i18n="hero_desc">
+                        Buyurtmangiz holatini `#ELX` kodi orqali real vaqtda tekshiring, shaxsiy parfyumer-somelye qabuliga yoziling yoki 24/7 Telegram botimiz orqali biz bilan bog'laning.
+                    </p>
+                </div>
+
+                <!-- Tezkor Ichki Bo'lim Tugmalari -->
+                <div class="lg:col-span-4 flex flex-wrap lg:justify-end gap-3">
+                    <a href="#order-tracker" class="px-5 py-3.5 rounded-xl bg-gold text-black font-bold text-xs uppercase tracking-widest hover:bg-gold-light transition flex items-center gap-2">
+                        <i class="fas fa-truck-fast"></i> <span>Buyurtmani Kuzatish</span>
+                    </a>
+                    <a href="#vip-booking" class="px-5 py-3.5 rounded-xl bg-white/10 border border-gold/50 text-white font-bold text-xs uppercase tracking-widest hover:bg-white/20 transition flex items-center gap-2">
+                        <i class="fas fa-calendar-check text-gold"></i> <span>Somelye Qabuli</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         5. BUYURTMA HOLATINI JONLI KUZATISH (#ELX-... ORDER TRACKER)
+         ========================================================= -->
+    <section id="order-tracker" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white dark:bg-charcoal rounded-3xl border-2 border-gold/40 shadow-2xl p-6 sm:p-10 reveal-up">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-gray-200 dark:border-white/10 pb-6 mb-8">
+                <div>
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-1" data-i18n="track_sub">Real-Time Logistics & Courier Radar</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold dark:text-white" data-i18n="track_title">Buyurtma Holatini Tekshirish (`#ELX-...`)</h2>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        1–4 sahifalarda bergan buyurtma raqamingizni kiriting yoki namuna kodlardan birini tanlang:
+                    </p>
+                </div>
+
+                <!-- Qidiruv Formasi -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+                    <input id="trackOrderInput" type="text" value="ELX-884920" placeholder="Masalan: ELX-884920" class="sm:w-64 px-4 py-3.5 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/40 font-mono text-sm font-bold uppercase tracking-widest focus:outline-none focus:border-gold">
+                    <button onclick="searchOrderStatus()" class="px-6 py-3.5 rounded-xl bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-widest transition shrink-0 flex items-center justify-center gap-2">
+                        <i class="fas fa-location-crosshairs"></i> <span>Kuzatish</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Namuna va Oxirgi Buyurtmalar Tugmalari -->
+            <div class="flex flex-wrap items-center gap-2 mb-8 text-xs">
+                <span class="text-gray-400 font-semibold">Tezkor tekshirish:</span>
+                <button onclick="loadOrderByCode('ELX-884920')" class="px-3 py-1.5 rounded-lg bg-gold/15 border border-gold/40 font-mono text-gold font-bold hover:bg-gold hover:text-black transition">#ELX-884920 (Kuryer yo'lda)</button>
+                <button onclick="loadOrderByCode('ELX-501777')" class="px-3 py-1.5 rounded-lg bg-gold/15 border border-gold/40 font-mono text-gold font-bold hover:bg-gold hover:text-black transition">#ELX-501777 (Qadoqlanmoqda)</button>
+                <button onclick="loadOrderByCode('ELX-999104')" class="px-3 py-1.5 rounded-lg bg-gold/15 border border-gold/40 font-mono text-gold font-bold hover:bg-gold hover:text-black transition">#ELX-999104 (Yetkazilgan)</button>
+                <div id="userRecentOrdersPills" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Buyurtma Natijasi va 4 Bosqichli Progress -->
+            <div id="orderTrackerResultBox" class="p-6 rounded-2xl bg-gray-50 dark:bg-obsidian border border-gold/25 space-y-6">
+                <!-- JS orqali dinamik chiziladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         6. 3 TA FLAGMAN BUTIK SWITCHERI VA JONLI XARITA
+         ========================================================= -->
+    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
+            <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2" data-i18n="map_sub">Our Flagship Salons</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold dark:text-white" data-i18n="map_title">O'zbekistondagi Rasmiy Butiklarimiz</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                Filialni tanlang — interyer surati, VIP zal imkoniyatlari va interaktiv xarita avtomatik yangilanadi.
+            </p>
+        </div>
+
+        <!-- 3 ta Butik Tanlash Tugmalari -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 reveal-up">
+            <button onclick="selectBoutiqueBranch(0)" class="branch-btn p-5 rounded-2xl bg-gold text-black text-left transition shadow-lg flex items-start justify-between">
+                <div>
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest block opacity-80">01 • Bosh Flagman</span>
+                    <h3 class="font-serif text-2xl font-bold mt-0.5">Toshkent • Amir Temur 107B</h3>
+                    <p class="text-xs mt-1 opacity-90">Har kuni: 10:00 — 23:00 • VIP Parking</p>
+                </div>
+                <i class="fas fa-location-dot text-xl"></i>
+            </button>
+
+            <button onclick="selectBoutiqueBranch(1)" class="branch-btn p-5 rounded-2xl bg-white dark:bg-charcoal border border-gold/30 text-left hover:border-gold transition flex items-start justify-between">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-gold block">02 • Salon Privé</span>
+                    <h3 class="font-serif text-2xl font-bold dark:text-white mt-0.5">Tashkent City Mall • 1-Qavat</h3>
+                    <p class="text-xs text-gray-400 mt-1">Har kuni: 10:00 — 23:30 • Engraving Studio</p>
+                </div>
+                <i class="fas fa-gem text-gold text-xl"></i>
+            </button>
+
+            <button onclick="selectBoutiqueBranch(2)" class="branch-btn p-5 rounded-2xl bg-white dark:bg-charcoal border border-gold/30 text-left hover:border-gold transition flex items-start justify-between">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-gold block">03 • Tarixiy Rezidensiya</span>
+                    <h3 class="font-serif text-2xl font-bold dark:text-white mt-0.5">Samarqand • Registon Plaza</h3>
+                    <p class="text-xs text-gray-400 mt-1">Har kuni: 09:00 — 22:00 • Oud Lounge</p>
+                </div>
+                <i class="fas fa-mosque text-gold text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Butik Ma'lumotlari + HD Rasm + Jonli Xarita -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal-up">
+            <!-- Chap: Butik Kartasi va HD Surati (5 Col) -->
+            <div class="lg:col-span-5 bg-white dark:bg-charcoal rounded-3xl overflow-hidden border border-gold/30 shadow-xl flex flex-col justify-between">
+                <div class="relative h-64 bg-gray-900">
+                    <img id="branchPhoto" src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=900&q=85" alt="Boutique Salon" class="w-full h-full object-cover transition duration-500" onerror="fallbackPerfumeImg(this, 'Flagship Boutique')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div>
+                    <span id="branchBadge" class="absolute top-4 left-4 bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">FLAGSHIP SALON</span>
+                    <h3 id="branchTitle" class="absolute bottom-4 left-5 right-5 font-serif text-2xl font-bold text-white">L'Élixir Tashkent — Amir Temur 107B</h3>
+                </div>
+
+                <div class="p-6 space-y-4 text-xs flex-1 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-map-pin text-gold text-base mt-0.5"></i>
+                            <div>
+                                <span class="text-gray-400 block uppercase text-[10px]">Aniq Manzil va Mo'ljal:</span>
+                                <strong id="branchAddress" class="dark:text-white text-sm">Toshkent sh., Yunusobod tumani, Amir Temur shoh ko'chasi, 107B (Xalqaro Hamkorlik Markazi ro'parasi)</strong>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-phone-volume text-gold text-base mt-0.5"></i>
+                            <div>
+                                <span class="text-gray-400 block uppercase text-[10px]">To'g'ridan-to'g'ri VIP Aloqa:</span>
+                                <strong id="branchPhone" class="text-gold text-sm">+998 (71) 200-88-99 • +998 (90) 999-88-77</strong>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-champagne-glasses text-gold text-base mt-0.5"></i>
+                            <div>
+                                <span class="text-gray-400 block uppercase text-[10px]">Salondagi Bepul Servislar:</span>
+                                <span id="branchFeatures" class="dark:text-gray-300">Individual parfyumer-somelye maslahati, 24K oltin lazer gravyurasi, qahva va shirinliklar.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-200 dark:border-white/10 flex gap-3">
+                        <a href="#vip-booking" class="flex-1 py-3 rounded-xl bg-gold text-black font-bold text-center uppercase tracking-wider hover:bg-gold-light transition">
+                            Uchrashuv Belgilash
+                        </a>
+                        <button onclick="sendLocationToTelegram()" class="px-4 py-3 rounded-xl bg-obsidian text-gold border border-gold/40 hover:bg-gold hover:text-black font-bold transition" title="Lokatsiyani Telegram botga olish">
+                            <i class="fab fa-telegram-plane mr-1"></i> Lokatsiya
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- O'ng: Interaktiv Xarita (7 Col) -->
+            <div class="lg:col-span-7 rounded-3xl overflow-hidden border-2 border-gold/30 shadow-xl min-h-[420px] bg-obsidian relative">
+                <iframe id="branchMapIframe"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=69.2750%2C41.3300%2C69.2950%2C41.3450&layer=mapnik&marker=41.3385%2C69.2845"
+                    class="w-full h-full min-h-[420px] border-0 filter contrast-125 dark:invert-[90%] dark:hue-rotate-180"
+                    loading="lazy"
+                    title="L'Elixir Boutique Map">
+                </iframe>
+                <div class="absolute bottom-4 left-4 right-4 bg-obsidian/90 backdrop-blur-md border border-gold/40 p-3.5 rounded-2xl flex flex-wrap items-center justify-between gap-2 text-xs text-white">
+                    <span><i class="fas fa-car text-gold mr-1.5"></i>Mijozlar uchun bepul VIP Valet Parking mavjud</span>
+                    <span class="text-gold font-mono" id="branchCoordsText">GPS: 41.3385° N, 69.2845° E</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         7. SOMELYE QABULIGA YOZILISH + TELEGRAM KONSYERJ FORMALARI
+         ========================================================= -->
+    <section id="vip-booking" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+            <!-- CHAP USTUN: SHAXSIY PARFYUMER-SOMELYE QABULIGA YOZILISH (6 COL) -->
+            <div class="lg:col-span-6 bg-white dark:bg-charcoal rounded-3xl p-6 sm:p-8 border border-gold/30 shadow-xl reveal-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-gold/20 border border-gold flex items-center justify-center text-gold text-xl">
+                        <i class="fas fa-wine-glass-empty"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.3em] text-gold font-bold block">Private Sommelier Session</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold dark:text-white" data-i18n="book_title">VIP Degustatsiya Qabuliga Yozilish</h3>
+                    </div>
+                </div>
+
+                <form onsubmit="submitSommelierBooking(event)" class="space-y-4 text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Ism-familiyangiz *</label>
+                            <input id="bookName" type="text" required placeholder="Masalan: Nigora Karimova" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm">
+                        </div>
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Telefon raqamingiz *</label>
+                            <input id="bookPhone" type="tel" required placeholder="+998 90 123 45 67" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Butikni tanlang</label>
+                            <select id="bookBoutique" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm font-semibold">
+                                <option value="Toshkent — Amir Temur 107B">📍 Toshkent — Amir Temur 107B</option>
+                                <option value="Tashkent City Mall VIP Lounge">📍 Tashkent City Mall VIP Lounge</option>
+                                <option value="Samarqand — Registon Plaza">📍 Samarqand — Registon Plaza</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Xizmat yo'nalishi</label>
+                            <select id="bookService" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm font-semibold">
+                                <option value="Shaxsiy Imzo Iforini Tanlash (60 daqiqa)">✨ Shaxsiy Imzo Iforini Tanlash</option>
+                                <option value="Nikoh & To'y Juftlik Parfyumi (His & Hers)">💍 Nikoh Juftlik Parfyumi (His & Hers)</option>
+                                <option value="Bespoke Individual Formula Yaratish">🧪 Individual Formula Yaratish</option>
+                                <option value="Korporativ VIP Sovg'alar Tanlovi">🎁 Korporativ VIP Sovg'alar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Tashrif sanasi *</label>
+                            <input id="bookDate" type="date" required class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm">
+                        </div>
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Qulay vaqt *</label>
+                            <select id="bookTime" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm font-semibold">
+                                <option value="11:00">🕚 11:00 — Tonggi sessiya</option>
+                                <option value="14:30">🕝 14:30 — Kunduzgi sessiya</option>
+                                <option value="17:00">🕔 17:00 — Kechki VIP sessiya</option>
+                                <option value="20:00">🕗 20:00 — Yopiq Salon Privé</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Qo'shimcha istaklaringiz (ixtiyoriy)</label>
+                        <input id="bookNotes" type="text" placeholder="Masalan: Oud va vanilli iforlarni ko'rmoqchiman..." class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold text-sm">
+                    </div>
+
+                    <button id="bookSubmitBtn" type="submit" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-widest transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fab fa-telegram text-base"></i>
+                        <span>Uchrashuvni Telegram Bot Orqali Tasdiqlash</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- O'NG USTUN: TO'G'RIDAN-TO'G'RI TELEGRAM KONSYERJ VA BOT DIAGNOSTIKASI (6 COL) -->
+            <div class="lg:col-span-6 bg-obsidian text-white rounded-3xl p-6 sm:p-8 border-2 border-gold shadow-2xl flex flex-col justify-between reveal-up">
+                <div class="space-y-5">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-gold text-black flex items-center justify-center text-2xl">
+                                <i class="fab fa-telegram-plane"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase tracking-[0.3em] text-gold font-bold block">Direct Bot Bridge • #8846649798</span>
+                                <h3 class="font-serif text-2xl sm:text-3xl font-bold" data-i18n="concierge_title">Tezkor Telegram Murojaat</h3>
+                            </div>
+                        </div>
+                        <button onclick="pingTelegramBotConnection()" id="pingBotBtn" class="px-3.5 py-2 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 text-[11px] font-bold hover:bg-emerald-500 hover:text-black transition">
+                            <i class="fas fa-plug-circle-check mr-1"></i> Botni Test Qilish
+                        </button>
+                    </div>
+
+                    <form onsubmit="submitDirectConciergeMsg(event)" class="space-y-4 text-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Ismingiz *</label>
+                                <input id="msgName" type="text" required placeholder="Ismingizni yozing" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-gold/40 text-white text-sm focus:outline-none focus:border-gold">
+                            </div>
+                            <div>
+                                <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Telefon yoki @username *</label>
+                                <input id="msgContact" type="text" required placeholder="+998... yoki @username" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-gold/40 text-white text-sm focus:outline-none focus:border-gold">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Murojaat mavzusi</label>
+                            <select id="msgTopic" class="w-full px-4 py-3 rounded-xl bg-charcoal border border-gold/40 text-white text-sm font-semibold focus:outline-none focus:border-gold">
+                                <option value="Tezkor Yetkazib Berish Bo'yicha">🚀 Tezkor Yetkazib Berish (2 soatlik VIP Kuryer)</option>
+                                <option value="Korporativ & B2B Hamkorlik">🤝 Korporativ Xarid va Hamkorlik</option>
+                                <option value="Individual Dekant / Atir So'rovi">👑 Katalogda yo'q noyob atirga buyurtma</option>
+                                <option value="Taklif va Fikr-mulohaza">💬 Taklif va Sifat nazorati</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="font-bold uppercase tracking-wider text-gray-400 block mb-1.5">Xabaringiz matni *</label>
+                            <textarea id="msgBody" rows="3" required placeholder="Savolingiz yoki xabaringizni batafsil yozing..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-gold/40 text-white text-sm focus:outline-none focus:border-gold"></textarea>
+                        </div>
+
+                        <button id="msgSubmitBtn" type="submit" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-widest transition shadow-lg flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Xabarni Botga Yuborish</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Pastki Ishonch Ma'lumoti -->
+                <div class="mt-6 pt-4 border-t border-white/10 flex flex-wrap justify-between items-center text-[11px] text-gray-400 gap-2">
+                    <span><i class="fas fa-bolt text-gold mr-1"></i>Javob berish vaqti: 3–5 daqiqa</span>
+                    <span class="font-mono text-gold">Chat ID: 8846649798</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         8. KO'P BERILADIGAN SAVOLLAR (INTERACTIVE FAQ ACCORDION)
+         ========================================================= -->
+    <section class="py-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal-up">
+            <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2">Mijozlar Uchun Ma'lumotnoma</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold dark:text-white" data-i18n="faq_title">Ko'p Beriladigan Savollar (FAQ)</h2>
+        </div>
+
+        <div class="space-y-3.5 reveal-up" id="faqAccordionContainer">
+            <!-- FAQ 1 -->
+            <div class="rounded-2xl bg-white dark:bg-charcoal border border-gold/25 overflow-hidden">
+                <button onclick="toggleFaq(0)" class="w-full p-5 text-left flex justify-between items-center font-serif text-xl font-bold dark:text-white">
+                    <span>1. Atirlar 100% original ekanligiga qanday kafolat bor?</span>
+                    <i class="fas fa-chevron-down text-gold text-sm faq-icon transition-transform"></i>
+                </button>
+                <div class="faq-body hidden px-5 pb-5 text-xs sm:text-sm text-gray-500 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-white/5 pt-3">
+                    Har bir flakon Fransiyaning Grass shahridagi laboratoriyamizdan rasmiy IFRA xavfsizlik sertifikati va individual lazerli `Batch Code` bilan keltiriladi. 4-sahifada (`about.html`) seriya raqamini kiritib tekshirishingiz mumkin.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="rounded-2xl bg-white dark:bg-charcoal border border-gold/25 overflow-hidden">
+                <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex justify-between items-center font-serif text-xl font-bold dark:text-white">
+                    <span>2. Toshkent va viloyatlarga yetkazib berish qancha vaqt oladi?</span>
+                    <i class="fas fa-chevron-down text-gold text-sm faq-icon transition-transform"></i>
+                </button>
+                <div class="faq-body hidden px-5 pb-5 text-xs sm:text-sm text-gray-500 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-white/5 pt-3">
+                    Toshkent shahri bo'ylab VIP kuryerimiz buyurtmangizni **90–120 daqiqa** ichida bepul yetkazadi. O'zbekistonning barcha viloyat markazlariga esa 24 soat ichida maxsus termo-qadoqda yetkazib beriladi.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="rounded-2xl bg-white dark:bg-charcoal border border-gold/25 overflow-hidden">
+                <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex justify-between items-center font-serif text-xl font-bold dark:text-white">
+                    <span>3. 15ml Dekant va 5x15ml Discovery Set qanday qadoqlanadi?</span>
+                    <i class="fas fa-chevron-down text-gold text-sm faq-icon transition-transform"></i>
+                </button>
+                <div class="faq-body hidden px-5 pb-5 text-xs sm:text-sm text-gray-500 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-white/5 pt-3">
+                    Dekantlarimiz original 100ml flakondan steril vakuum usulida oltin qopqoqli shisha atomayzerlarga quyiladi va baxmal g'ilofda taqdim etiladi.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         9. FOOTER (BARCHA 5 SAHIFA YAKUNIY XARITASI BILAN)
+         ========================================================= -->
+    <footer class="bg-obsidian text-gray-300 pt-14 pb-12 border-t border-gold/30 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+            <div class="md:col-span-5 space-y-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full border border-gold flex items-center justify-center text-gold"><i class="fas fa-crown"></i></div>
+                    <span class="font-serif text-2xl font-bold text-white tracking-widest">L'ÉLIXIR PARFUMERIE</span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed max-w-md">
+                    5 sahifali rasmiy Multi-Page (MPA) Parfyumeriya Butigi. Barcha sahifalar `localStorage` va Telegram Bot (`8846649798`) orqali yagona tizimga birlashtirilgan.
+                </p>
+            </div>
+            <div class="md:col-span-4 space-y-2 text-xs">
+                <h4 class="font-serif text-lg font-bold text-white mb-2">To'liq 5 Sahifali Tizim</h4>
+                <a href="index.html" class="page-link block hover:text-gold">1. index.html — Bosh sahifa & 3D Vitrina</a>
+                <a href="catalog.html" class="page-link block hover:text-gold">2. catalog.html — Katalog, Filterlar va Solishtirish</a>
+                <a href="collections.html" class="page-link block hover:text-gold">3. collections.html — VIP Kolleksiyalar & Gravyura</a>
+                <a href="about.html" class="page-link block hover:text-gold">4. about.html — Brend Tarixi, Piramida va Sertifikat</a>
+                <a href="contact.html" class="page-link block text-gold font-bold">5. contact.html — Aloqa, Xarita va Kuzatuv (Aktiv)</a>
+            </div>
+            <div class="md:col-span-3 space-y-2 text-xs">
+                <h4 class="font-serif text-lg font-bold text-white mb-2">Rasmiy Rekvizitlar</h4>
+                <p class="text-gray-400"><i class="fas fa-building text-gold mr-2"></i>"L'Élixir Distribution" MChJ</p>
+                <p class="text-gray-400"><i class="fas fa-phone text-gold mr-2"></i>+998 (71) 200-88-99</p>
+                <p class="text-gold font-mono"><i class="fab fa-telegram mr-2"></i>Bot ID: 8846649798</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 text-xs text-gray-500 flex justify-between">
+            <span>© 2026 L'Élixir Haute Parfumerie • Sahifa 5 / 5 (`contact.html`)</span>
+            <span>Full 5-Page MPA Completed</span>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         10. SAVAT, SEVIMLILAR VA TELEGRAM BUYURTMA MODALLARI
+         ========================================================= -->
+    <div id="drawerBackdrop" onclick="closeDrawers()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
+
+    <!-- SAVAT DRAWER -->
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white flex items-center gap-2">
+                <i class="fas fa-bag-shopping text-gold"></i> <span>Xarid Savati</span>
+            </h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:text-gold"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cartDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+        <div class="p-5 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-obsidian space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold">
+                <span>Jami summa:</span>
+                <span id="cartDrawerTotal" class="text-gold text-2xl font-serif">$0.00</span>
+            </div>
+            <button onclick="openOrderModal()" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-bold text-xs uppercase tracking-widest transition shadow-lg flex items-center justify-center gap-2">
+                <i class="fab fa-telegram text-lg"></i> <span>Telegram Orqali Rasmiylashtirish</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- SEVIMLILAR DRAWER -->
+    <aside id="wishDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white flex items-center gap-2">
+                <i class="fas fa-heart text-gold"></i> <span>Sevimli Atirlar</span>
+            </h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:text-gold"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="wishDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+    </aside>
+
+    <!-- TELEGRAM BUYURTMA MODALI -->
+    <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="bg-white dark:bg-charcoal border-2 border-gold rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold"><i class="fas fa-times text-xl"></i></button>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-gold/20 border border-gold flex items-center justify-center text-gold text-2xl">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-2xl font-bold dark:text-white">VIP Buyurtmani Yuborish</h3>
+                    <p class="text-xs text-gray-400">Buyurtma darhol Telegram botga (`8846649798`) tushadi</p>
+                </div>
+            </div>
+
+            <form onsubmit="submitOrderToTelegramBot(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Ism-familiyangiz *</label>
+                    <input id="orderName" type="text" required placeholder="Masalan: Sanjarbek Oripov" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Telefon raqamingiz *</label>
+                    <input id="orderPhone" type="tel" required placeholder="+998 90 123 45 67" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">Yetkazib berish manzili *</label>
+                    <input id="orderAddress" type="text" required placeholder="Toshkent sh., Chilonzor tumani..." class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30 focus:outline-none focus:border-gold">
+                </div>
+                <button id="orderSubmitBtn" type="submit" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-bold text-xs uppercase tracking-widest transition shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> Buyurtmani Botga Jo'natish
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST XABARNOMALAR -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 space-y-2"></div>
+
+    <!-- =========================================================
+         11. JAVASCRIPT ENGINE (TRACKER, MAP, BOOKING & TELEGRAM)
+         ========================================================= -->
+    <script>
+        // --- 1. TELEGRAM BOT KONFIGURATSIYASI ---
+        const BOT_TOKEN = "8526997958:AAFWIa91o0gkqV2sXGHWOsaM9dcbBHW8s_I";
+        const CHAT_ID = "8846649798";
+
+        // --- 2. ZAXIRA SVG GENERATORI ---
+        function fallbackPerfumeImg(imgEl, label = "L'Élixir Boutique") {
+            imgEl.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700">
+                <rect width="600" height="700" fill="#0E0E14"/>
+                <rect x="120" y="140" width="360" height="420" rx="28" fill="#181822" stroke="#D4AF37" stroke-width="3.5"/>
+                <text x="300" y="330" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="26" font-weight="bold">L'ÉLIXIR SALON</text>
+                <text x="300" y="370" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="15">${label}</text>
+            </svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        // --- 3. 3 TA FLAGMAN BUTIK BAZASI ---
+        const boutiqueBranches = [
+            {
+                badge: "FLAGSHIP SALON • 01",
+                title: "L'Élixir Tashkent — Amir Temur 107B",
+                address: "Toshkent sh., Yunusobod tumani, Amir Temur shoh ko'chasi, 107B (Xalqaro Hamkorlik Markazi ro'parasi)",
+                phone: "+998 (71) 200-88-99 • +998 (90) 999-88-77",
+                features: "Individual parfyumer-somelye maslahati, 24K oltin lazer gravyurasi, qahva va shirinliklar.",
+                coords: "GPS: 41.3385° N, 69.2845° E",
+                img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=900&q=85",
+                mapUrl: "https://www.openstreetmap.org/export/embed.html?bbox=69.2750%2C41.3300%2C69.2950%2C41.3450&layer=mapnik&marker=41.3385%2C69.2845"
+            },
+            {
+                badge: "SALON PRIVÉ • 02",
+                title: "L'Élixir Tashkent City Mall — VIP Wing",
+                address: "Toshkent sh., Shayxontohur tumani, Botir Zokirov ko'chasi, Tashkent City Mall, 1-Qavat Luxury Atrium",
+                phone: "+998 (71) 205-77-88 • +998 (90) 888-77-66",
+                features: "Bespoke Discovery Set konstruktori, yopiq VIP degustatsiya xonasi va Yer osti avtoturargohi.",
+                coords: "GPS: 41.3145° N, 69.2485° E",
+                img: "https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=900&q=85",
+                mapUrl: "https://www.openstreetmap.org/export/embed.html?bbox=69.2380%2C41.3080%2C69.2580%2C41.3220&layer=mapnik&marker=41.3145%2C69.2485"
+            },
+            {
+                badge: "HISTORICAL RESIDENCE • 03",
+                title: "L'Élixir Samarkand — Registon Plaza",
+                address: "Samarqand sh., Universitet xiyoboni, 14-uy (Registon maydoni yaqinidagi Luxury galereya)",
+                phone: "+998 (66) 230-55-44 • +998 (91) 555-44-33",
+                features: "Sharqona Kambodja udi va za'faron kolleksiyasi zali, sayyohlar uchun Tax-Free xizmati.",
+                coords: "GPS: 39.6542° N, 66.9758° E",
+                img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=85",
+                mapUrl: "https://www.openstreetmap.org/export/embed.html?bbox=66.9650%2C39.6450%2C66.9850%2C39.6620&layer=mapnik&marker=39.6542%2C66.9758"
+            }
+        ];
+        let activeBranchIdx = 0;
+
+        // --- 4. NAMUNA BUYURTMALAR BAZASI ---
+        const demoOrdersDB = {
+            "ELX-884920": {
+                id: "ELX-884920",
+                customer: "Sardorbek Aliyev",
+                items: "Oud Impérial Extrait (100ml) + 2x Sample",
+                total: 145,
+                step: 3, // 1: Qabul qilindi, 2: Qadoqlanmoqda, 3: Kuryer yo'lda, 4: Yetkazildi
+                courier: "Javohir M. (Mercedes-Benz VIP Courier • +998 90 911-22-33)",
+                eta: "35 daqiqada manzilda bo'ladi"
+            },
+            "ELX-501777": {
+                id: "ELX-501777",
+                customer: "Madina Karimova",
+                items: "Shaxsiy Discovery Set (5x15ml) + Oltin Tabriknoma",
+                total: 125,
+                step: 2,
+                courier: "Bespoke Atelyeda shoyi lenta va mum muhr bilan qadoqlanmoqda",
+                eta: "Bugun 16:30 gacha yetkaziladi"
+            },
+            "ELX-999104": {
+                id: "ELX-999104",
+                customer: "Dilshod Raximov",
+                items: "Baccarat Élixir Rouge (100ml Gravyurali)",
+                total: 200,
+                step: 4,
+                courier: "Mijozga shaxsan topshirilgan (Imzo tasdiqlangan)",
+                eta: "Yetkazib berilgan"
+            }
+        };
+
+        // --- 5. KO'P TILLI LUG'AT (UZ / EN / RU) ---
+        const dict = {
+            uz: {
+                top_promo: "Toshkent va Samarqanddagi VIP zalimizga tashrif buyuring yoki buyurtmangizni #ELX kodi orqali kuzating!",
+                nav_1: "1. Bosh sahifa",
+                nav_2: "2. Katalog",
+                nav_3: "3. VIP Kolleksiya",
+                nav_4: "4. Brend & Notalar",
+                nav_5: "5. Aloqa & Xarita",
+                bread_contact: "5. Aloqa, Xarita, Buyurtma Kuzatuvi va Telegram Konsyerj",
+                hero_badge: "Salon Privé • Tashkent & Samarkand",
+                hero_title_1: "VIP Konsyerj Xizmati &",
+                hero_title_2: "Flagman Butiklarimiz",
+                track_sub: "Real-Time Logistics & Courier Radar",
+                track_title: "Buyurtma Holatini Tekshirish (#ELX-...)",
+                map_sub: "Our Flagship Salons",
+                map_title: "O'zbekistondagi Rasmiy Butiklarimiz",
+                book_title: "VIP Degustatsiya Qabuliga Yozilish",
+                concierge_title: "Tezkor Telegram Murojaat",
+                faq_title: "Ko'p Beriladigan Savollar (FAQ)"
+            },
+            en: {
+                top_promo: "Visit our VIP Salons in Tashkent & Samarkand or track your live order with #ELX code!",
+                nav_1: "1. Home",
+                nav_2: "2. Catalog",
+                nav_3: "3. VIP Collection",
+                nav_4: "4. Heritage & Notes",
+                nav_5: "5. Contact & Map",
+                bread_contact: "5. Contact, Map, Live Order Tracker & Telegram Concierge",
+                hero_badge: "Salon Privé • Tashkent & Samarkand",
+                hero_title_1: "VIP Concierge Service &",
+                hero_title_2: "Flagship Boutiques",
+                track_sub: "Real-Time Logistics & Courier Radar",
+                track_title: "Live Order Status Tracker (#ELX-...)",
+                map_sub: "Our Flagship Salons",
+                map_title: "Official Boutiques in Uzbekistan",
+                book_title: "Book a Private Sommelier Session",
+                concierge_title: "Direct Telegram Concierge",
+                faq_title: "Frequently Asked Questions (FAQ)"
+            },
+            ru: {
+                top_promo: "Посетите наши VIP-бутики в Ташкенте и Самарканде или отследите заказ по коду #ELX!",
+                nav_1: "1. Главная",
+                nav_2: "2. Каталог",
+                nav_3: "3. VIP Коллекция",
+                nav_4: "4. Бренд и Ноты",
+                nav_5: "5. Контакты и Карта",
+                bread_contact: "5. Контакты, Карта, Отслеживание Заказа и Telegram Консьерж",
+                hero_badge: "Salon Privé • Ташкент и Самарканд",
+                hero_title_1: "VIP Консьерж Сервис и",
+                hero_title_2: "Флагманские Бутики",
+                track_sub: "Логистика в Реальном Времени",
+                track_title: "Отслеживание Статуса Заказа (#ELX-...)",
+                map_sub: "Наши Флагманские Салоны",
+                map_title: "Официальные Бутики в Узбекистане",
+                book_title: "Запись На Приватную Дегустацию",
+                concierge_title: "Прямое Обращение в Telegram",
+                faq_title: "Часто Задаваемые Вопросы (FAQ)"
+            }
+        };
+
+        // --- 6. STATE ---
+        let currentLang = localStorage.getItem("elixir_lang") || "uz";
+        let cart = JSON.parse(localStorage.getItem("elixir_cart")) || [];
+        let wishlist = JSON.parse(localStorage.getItem("elixir_wish")) || [];
+
+        // --- 7. SAHIFA YUKLANISHI ---
+        window.addEventListener("DOMContentLoaded", () => {
+            runCurtainPreloader();
+            initThemeState();
+            initLangState();
+            renderUserSavedOrdersPills();
+            searchOrderStatus();
+            syncDrawersUI();
+            initScrollReveal();
+            bindMultiPageTransitions();
+
+            // Bugungi sanani default qilib qo'yish
+            const dateInput = document.getElementById("bookDate");
+            if (dateInput) dateInput.valueAsDate = new Date();
+        });
+
+        function runCurtainPreloader() {
+            let p = 0;
+            const bar = document.getElementById("curtainProgress");
+            const pct = document.getElementById("curtainPercent");
+            const curtain = document.getElementById("pageCurtain");
+
+            const timer = setInterval(() => {
+                p += Math.floor(Math.random() * 18) + 10;
+                if (p >= 100) {
+                    p = 100;
+                    clearInterval(timer);
+                    setTimeout(() => curtain.classList.add("open"), 180);
+                    setTimeout(() => curtain.classList.add("gone"), 1300);
+                }
+                bar.style.width = p + "%";
+                pct.textContent = p + "%";
+            }, 75);
+        }
+
+        function bindMultiPageTransitions() {
+            document.querySelectorAll("a.page-link").forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const href = link.getAttribute("href");
+                    if (!href || href === "contact.html" || href.startsWith("#")) return;
+                    e.preventDefault();
+                    const curtain = document.getElementById("pageCurtain");
+                    document.getElementById("curtainStatusText").textContent = `${href.toUpperCase()} OCHILMOQDA...`;
+                    curtain.classList.remove("gone", "open");
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600);
+                });
+            });
+        }
+
+        function toggleMobileNav() {
+            document.getElementById("mobileNavBox").classList.toggle("hidden");
+        }
+
+        // --- 8. BUYURTMA KUZATUVI (#ELX-... ORDER TRACKER) LOGIKASI ---
+        function renderUserSavedOrdersPills() {
+            const savedOrders = JSON.parse(localStorage.getItem("elixir_orders")) || [];
+            const box = document.getElementById("userRecentOrdersPills");
+            if (savedOrders.length === 0) return;
+
+            box.innerHTML = savedOrders.slice(0, 3).map(o => `
+                <button onclick="loadOrderByCode('${o.id}')" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400 font-mono text-emerald-300 font-bold hover:bg-emerald-400 hover:text-black transition">
+                    #${o.id} (Sizning buyurtmangiz)
+                </button>
+            `).join("");
+        }
+
+        function loadOrderByCode(code) {
+            document.getElementById("trackOrderInput").value = code;
+            searchOrderStatus();
+        }
+
+        function searchOrderStatus() {
+            const raw = document.getElementById("trackOrderInput").value.trim().toUpperCase().replace("#", "");
+            const savedOrders = JSON.parse(localStorage.getItem("elixir_orders")) || [];
+            const fromLocal = savedOrders.find(o => o.id === raw);
+
+            let orderObj = demoOrdersDB[raw];
+            if (fromLocal) {
+                orderObj = {
+                    id: fromLocal.id,
+                    customer: fromLocal.name,
+                    items: `VIP Buyurtma (${fromLocal.date})`,
+                    total: fromLocal.total,
+                    step: 2,
+                    courier: "Buyurtmangiz Telegram bot orqali qabul qilingan va qadoqlanmoqda",
+                    eta: "90 daqiqa ichida VIP Kuryerga topshiriladi"
+                };
+            } else if (!orderObj) {
+                orderObj = {
+                    id: raw || "ELX-884920",
+                    customer: "VIP Mijoz",
+                    items: "L'Élixir Extrait de Parfum (Maxsus buyurtma)",
+                    total: 160,
+                    step: 3,
+                    courier: "VIP Kuryer Toshkent bo'ylab yetkazish yo'nalishida",
+                    eta: "45 daqiqa ichida"
+                };
+            }
+
+            const steps = [
+                { num: 1, title: "Qabul qilindi", icon: "fa-clipboard-check" },
+                { num: 2, title: "Qadoqlanmoqda", icon: "fa-box-open" },
+                { num: 3, title: "VIP Kuryer yo'lda", icon: "fa-truck-fast" },
+                { num: 4, title: "Yetkazib berildi", icon: "fa-circle-check" }
+            ];
+
+            const stepsHtml = steps.map(s => {
+                const active = s.num <= orderObj.step;
+                return `
+                <div class="flex items-center gap-3 p-3.5 rounded-2xl border ${active ? 'bg-gold/15 border-gold text-gold' : 'bg-white/5 border-gray-300 dark:border-white/10 text-gray-400'}">
+                    <div class="w-9 h-9 rounded-xl ${active ? 'bg-gold text-black' : 'bg-gray-200 dark:bg-white/10'} flex items-center justify-center font-bold text-sm shrink-0">
+                        <i class="fas ${s.icon}"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider block opacity-75">Bosqich 0${s.num}</span>
+                        <strong class="text-xs sm:text-sm dark:text-white">${s.title}</strong>
+                    </div>
+                </div>`;
+            }).join("");
+
+            document.getElementById("orderTrackerResultBox").innerHTML = `
+                <div class="flex flex-wrap justify-between items-center gap-4 border-b border-gray-200 dark:border-white/10 pb-4">
+                    <div>
+                        <span class="text-xs text-gold font-mono font-bold">BUYURTMA KODI: #${orderObj.id}</span>
+                        <h3 class="font-serif text-2xl font-bold dark:text-white mt-0.5">${orderObj.customer} — $${orderObj.total}.00</h3>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">${orderObj.items}</p>
+                    </div>
+                    <button onclick="pingCourierOnTelegram('${orderObj.id}')" class="px-4 py-2.5 rounded-xl bg-obsidian text-gold border border-gold/50 hover:bg-gold hover:text-black text-xs font-bold uppercase tracking-wider transition">
+                        <i class="fab fa-telegram mr-1"></i> Kuryer Holatini Botdan So'rash
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    ${stepsHtml}
+                </div>
+
+                <div class="flex flex-wrap justify-between items-center gap-2 text-xs pt-2 text-gray-500 dark:text-gray-300">
+                    <span><i class="fas fa-user-tie text-gold mr-1.5"></i><strong>Logistika ma'lumoti:</strong> ${orderObj.courier}</span>
+                    <span class="px-3 py-1 rounded-full bg-gold/20 text-gold font-bold"><i class="fas fa-clock mr-1"></i>${orderObj.eta}</span>
+                </div>
+            `;
+        }
+
+        async function pingCourierOnTelegram(orderId) {
+            const ok = await postToTelegramBot(`🚚 <b>BUYURTMA HOLATI SO'ROVI (contact.html)</b>\n🔢 Buyurtma: <code>#${orderId}</code>\n📍 Mijoz kuryerning joriy lokatsiyasini so'ramoqda.`);
+            if (ok) notifyToast(`#${orderId} bo'yicha kuryer so'rovi Telegram botga yuborildi!`);
+        }
+
+        // --- 9. 3 TA BUTIK VA XARITA SWITCHERI ---
+        function selectBoutiqueBranch(idx) {
+            activeBranchIdx = idx;
+            const b = boutiqueBranches[idx];
+
+            document.getElementById("branchPhoto").src = b.img;
+            document.getElementById("branchBadge").textContent = b.badge;
+            document.getElementById("branchTitle").textContent = b.title;
+            document.getElementById("branchAddress").textContent = b.address;
+            document.getElementById("branchPhone").textContent = b.phone;
+            document.getElementById("branchFeatures").textContent = b.features;
+            document.getElementById("branchCoordsText").textContent = b.coords;
+            document.getElementById("branchMapIframe").src = b.mapUrl;
+
+            document.querySelectorAll(".branch-btn").forEach((btn, i) => {
+                if (i === idx) {
+                    btn.className = "branch-btn p-5 rounded-2xl bg-gold text-black text-left transition shadow-lg flex items-start justify-between";
+                } else {
+                    btn.className = "branch-btn p-5 rounded-2xl bg-white dark:bg-charcoal border border-gold/30 text-left hover:border-gold transition flex items-start justify-between";
+                }
+            });
+        }
+
+        async function sendLocationToTelegram() {
+            const b = boutiqueBranches[activeBranchIdx];
+            const msg = `📍 <b>BUTIK LOKATSIYASI SO'ROVI (contact.html)</b>\n\n` +
+                        `🏛 <b>Filial:</b> ${b.title}\n` +
+                        `🗺 <b>Manzil:</b> ${b.address}\n` +
+                        `📞 <b>Telefon:</b> ${b.phone}\n` +
+                        `🧭 <b>${b.coords}</b>`;
+            const ok = await postToTelegramBot(msg);
+            if (ok) notifyToast(`${b.title} lokatsiyasi Telegram botga yuborildi!`);
+        }
+
+        // --- 10. SOMELYE QABULI VA KONSYERJ FORMALARINI BOTGA JO'NATISH ---
+        async function submitSommelierBooking(e) {
+            e.preventDefault();
+            const btn = document.getElementById("bookSubmitBtn");
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Bron qilinmoqda...`;
+
+            const name = document.getElementById("bookName").value.trim();
+            const phone = document.getElementById("bookPhone").value.trim();
+            const boutique = document.getElementById("bookBoutique").value;
+            const service = document.getElementById("bookService").value;
+            const date = document.getElementById("bookDate").value;
+            const time = document.getElementById("bookTime").value;
+            const notes = document.getElementById("bookNotes").value.trim() || "Yo'q";
+
+            const msg = `🥂 <b>YANGI VIP SOMELYE UCHRASHUVI (contact.html)</b>\n\n` +
+                        `👤 <b>Mijoz:</b> ${name}\n` +
+                        `📞 <b>Telefon:</b> <code>${phone}</code>\n` +
+                        `🏛 <b>Tanlangan Butik:</b> ${boutique}\n` +
+                        `✨ <b>Xizmat turi:</b> ${service}\n` +
+                        `📅 <b>Sana va Vaqt:</b> ${date} | Soat ${time}\n` +
+                        `📝 <b>Qo'shimcha istak:</b> ${notes}`;
+
+            const ok = await postToTelegramBot(msg);
+            if (ok) {
+                e.target.reset();
+                notifyToast("Tabriklaymiz! VIP Somelye uchrashuvingiz botda tasdiqlandi.");
+            } else {
+                notifyToast("Xatolik: Internet yoki Telegram ulanishini tekshiring.");
+            }
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fab fa-telegram text-base mr-2"></i> Uchrashuvni Telegram Bot Orqali Tasdiqlash`;
+        }
+
+        async function submitDirectConciergeMsg(e) {
+            e.preventDefault();
+            const btn = document.getElementById("msgSubmitBtn");
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Yuborilmoqda...`;
+
+            const name = document.getElementById("msgName").value.trim();
+            const contact = document.getElementById("msgContact").value.trim();
+            const topic = document.getElementById("msgTopic").value;
+            const body = document.getElementById("msgBody").value.trim();
+
+            const msg = `💬 <b>TELEGRAM KONSYERJGA YANGI MUROJAAT (contact.html)</b>\n\n` +
+                        `👤 <b>Mijoz:</b> ${name}\n` +
+                        `📞 <b>Aloqa:</b> <code>${contact}</code>\n` +
+                        `📌 <b>Mavzu:</b> ${topic}\n\n` +
+                        `✉️ <b>Xabar matni:</b>\n${body}`;
+
+            const ok = await postToTelegramBot(msg);
+            if (ok) {
+                e.target.reset();
+                notifyToast("Xabaringiz Telegram botimizga yetib bordi!");
+            } else {
+                notifyToast("Telegram ulanishini tekshiring!");
+            }
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fas fa-paper-plane mr-2"></i> Xabarni Botga Yuborish`;
+        }
+
+        async function pingTelegramBotConnection() {
+            const btn = document.getElementById("pingBotBtn");
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1"></i> Tekshirilmoqda...`;
+            const ok = await postToTelegramBot(`✅ <b>L'ÉLIXIR 5-SAHIFA (contact.html) — BOT ALOQA TESTI MUVAFFAQIYATLI!</b>\n🌐 Barcha 5 ta sahifa (index, catalog, collections, about, contact) faol.`);
+            if (ok) {
+                btn.innerHTML = `<i class="fas fa-check-double mr-1"></i> Bot 100% Online!`;
+                notifyToast("Telegram Bot (ID: 8846649798) muvaffaqiyatli javob berdi!");
+            } else {
+                btn.innerHTML = `<i class="fas fa-triangle-exclamation mr-1"></i> Qayta urinish`;
+                notifyToast("Xabar yuborish uchun avval botga /start bosilgan bo'lishi kerak.");
+            }
+        }
+
+        // --- 11. FAQ ACCORDION ---
+        function toggleFaq(idx) {
+            const bodies = document.querySelectorAll(".faq-body");
+            const icons = document.querySelectorAll(".faq-icon");
+            bodies[idx].classList.toggle("hidden");
+            icons[idx].classList.toggle("rotate-180");
+        }
+
+        // --- 12. SAVAT, SEVIMLILAR VA TELEGRAM INTEGRATSIYASI ---
+        function updateCartItemQty(idx, delta) {
+            if (!cart[idx]) return;
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+            saveSharedState();
+        }
+
+        function saveSharedState() {
+            localStorage.setItem("elixir_cart", JSON.stringify(cart));
+            localStorage.setItem("elixir_wish", JSON.stringify(wishlist));
+            syncDrawersUI();
+        }
+
+        function syncDrawersUI() {
+            document.getElementById("cartCountBadge").textContent = cart.reduce((s, i) => s + i.qty, 0);
+            document.getElementById("wishCountBadge").textContent = wishlist.length;
+
+            const cartList = document.getElementById("cartDrawerList");
+            if (cart.length === 0) {
+                cartList.innerHTML = `<p class="text-center text-gray-400 py-12 text-sm">Savatingiz hozircha bo'sh</p>`;
+                document.getElementById("cartDrawerTotal").textContent = "$0.00";
+            } else {
+                let total = 0;
+                cartList.innerHTML = cart.map((item, idx) => {
+                    total += item.price * item.qty;
+                    return `
+                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-gray-100 dark:bg-obsidian border border-gold/20">
+                        <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover shrink-0" onerror="fallbackPerfumeImg(this, 'VIP')">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-serif font-bold text-sm dark:text-white leading-snug">${item.name}</h4>
+                            <p class="text-gold text-xs font-bold mt-0.5">$${item.price} x ${item.qty} = $${item.price * item.qty}</p>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <button onclick="updateCartItemQty(${idx}, -1)" class="w-6 h-6 rounded bg-white dark:bg-charcoal border border-gold/30 text-xs">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="updateCartItemQty(${idx}, 1)" class="w-6 h-6 rounded bg-white dark:bg-charcoal border border-gold/30 text-xs">+</button>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join("");
+                document.getElementById("cartDrawerTotal").textContent = `$${total.toFixed(2)}`;
+            }
+
+            const wishList = document.getElementById("wishDrawerList");
+            if (wishlist.length === 0) {
+                wishList.innerHTML = `<p class="text-center text-gray-400 py-12 text-sm">Sevimlilar ro'yxati bo'sh</p>`;
+            } else {
+                wishList.innerHTML = wishlist.map(item => `
+                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-gray-100 dark:bg-obsidian border border-gold/20">
+                        <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover" onerror="fallbackPerfumeImg(this, 'VIP')">
+                        <div class="flex-1">
+                            <h4 class="font-serif font-bold text-base dark:text-white">${item.name}</h4>
+                            <p class="text-gold text-xs font-bold">$${item.price}</p>
+                        </div>
+                    </div>
+                `).join("");
+            }
+        }
+
+        async function postToTelegramBot(htmlMsg) {
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: htmlMsg,
+                        parse_mode: "HTML"
+                    })
+                });
+                return res.ok;
+            } catch (e) {
+                console.error("Telegram xatosi:", e);
+                return false;
+            }
+        }
+
+        function openOrderModal() {
+            if (cart.length === 0) {
+                notifyToast("Avval savatga atir qo'shing!");
+                return;
+            }
+            closeDrawers();
+            const m = document.getElementById("orderModal");
+            m.classList.remove("hidden");
+            m.classList.add("flex");
+        }
+
+        function closeOrderModal() {
+            const m = document.getElementById("orderModal");
+            m.classList.add("hidden");
+            m.classList.remove("flex");
+        }
+
+        async function submitOrderToTelegramBot(e) {
+            e.preventDefault();
+            const btn = document.getElementById("orderSubmitBtn");
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Yuborilmoqda...`;
+
+            const name = document.getElementById("orderName").value.trim();
+            const phone = document.getElementById("orderPhone").value.trim();
+            const addr = document.getElementById("orderAddress").value.trim();
+            const orderId = "ELX-" + Math.floor(100000 + Math.random() * 900000);
+
+            let total = 0;
+            const lines = cart.map((i, idx) => {
+                const sub = i.price * i.qty;
+                total += sub;
+                return `${idx + 1}. <b>${i.name}</b> (${i.qty} x $${i.price}) = <b>$${sub}</b>`;
+            }).join("\n");
+
+            const msg = `👑 <b>L'ÉLIXIR — YANGI BUYURTMA (#${orderId})</b>\n` +
+                        `📄 <b>Sahifa:</b> 5-Sahifa (contact.html)\n\n` +
+                        `👤 <b>Mijoz:</b> ${name}\n` +
+                        `📞 <b>Telefon:</b> <code>${phone}</code>\n` +
+                        `📍 <b>Manzil:</b> ${addr}\n\n` +
+                        `🛍 <b>Atirlar:</b>\n${lines}\n\n` +
+                        `💰 <b>JAMI SUMMA: $${total.toFixed(2)}</b>`;
+
+            const ok = await postToTelegramBot(msg);
+            if (ok) {
+                const orders = JSON.parse(localStorage.getItem("elixir_orders")) || [];
+                orders.unshift({ id: orderId, name, phone, total, date: new Date().toLocaleDateString() });
+                localStorage.setItem("elixir_orders", JSON.stringify(orders));
+
+                cart = [];
+                saveSharedState();
+                closeOrderModal();
+                e.target.reset();
+                renderUserSavedOrdersPills();
+                loadOrderByCode(orderId);
+                notifyToast(`Buyurtma #${orderId} Telegram botga yuborildi va kuzatuvda ochildi!`);
+            } else {
+                notifyToast("Telegram ulanishini tekshiring!");
+            }
+            btn.disabled = false;
+            btn.innerHTML = `<i class="fas fa-paper-plane mr-2"></i> Buyurtmani Botga Jo'natish`;
+        }
+
+        // --- 13. MAVZU, TIL VA SCROLL REVEAL ---
+        function initThemeState() {
+            const saved = localStorage.getItem("elixir_theme") || "dark";
+            document.documentElement.classList.toggle("dark", saved === "dark");
+            document.getElementById("themeToggleBtn").addEventListener("click", () => {
+                const isDark = document.documentElement.classList.toggle("dark");
+                localStorage.setItem("elixir_theme", isDark ? "dark" : "light");
+            });
+        }
+
+        function initLangState() {
+            const sel = document.getElementById("langSelect");
+            sel.value = currentLang;
+            applyTranslations(currentLang);
+            sel.addEventListener("change", (e) => {
+                currentLang = e.target.value;
+                localStorage.setItem("elixir_lang", currentLang);
+                applyTranslations(currentLang);
+            });
+        }
+
+        function applyTranslations(lang) {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const k = el.getAttribute("data-i18n");
+                if (dict[lang] && dict[lang][k]) el.textContent = dict[lang][k];
+            });
+        }
+
+        function openDrawer(id) {
+            document.getElementById("drawerBackdrop").classList.remove("hidden");
+            document.getElementById(id).classList.remove("translate-x-full");
+        }
+
+        function closeDrawers() {
+            document.getElementById("drawerBackdrop").classList.add("hidden");
+            document.getElementById("cartDrawer").classList.add("translate-x-full");
+            document.getElementById("wishDrawer").classList.add("translate-x-full");
+        }
+
+        function initScrollReveal() {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) en.target.classList.add("visible");
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll(".reveal-up").forEach(el => obs.observe(el));
+        }
+
+        function notifyToast(msg) {
+            const box = document.getElementById("toastContainer");
+            const el = document.createElement("div");
+            el.className = "px-5 py-3.5 rounded-2xl bg-obsidian text-white border border-gold shadow-2xl flex items-center gap-3 text-xs font-bold";
+            el.innerHTML = `<i class="fas fa-circle-check text-gold text-base"></i><span>${msg}</span>`;
+            box.appendChild(el);
+            setTimeout(() => el.remove(), 3400);
+        }
+    </script>
+</body>
+</html>

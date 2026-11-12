@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Élixir Parfumerie | 1. Bosh Sahifa — Royal Haute Parfumerie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#F5E6B3', dark: '#9A7B1C' },
+                        obsidian: '#09090C',
+                        charcoal: '#121217',
+                        pearl: '#FAF7F2'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* REALISTIK 3D BAXMAL PARDA (FAQAT INDEX.HTML DA) */
+        #pageCurtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            perspective: 1400px;
+        }
+        .velvet-curtain-left,
+        .velvet-curtain-right {
+            position: absolute;
+            top: -5%;
+            width: 52%;
+            height: 110%;
+            z-index: 2;
+            background-color: #09080d;
+            background-image:
+                radial-gradient(circle at 50% 35%, rgba(212, 175, 55, 0.08) 0%, transparent 65%),
+                repeating-linear-gradient(90deg, #07060a 0px, #15121e 28px, #211b2e 48px, #110e18 72px, #060509 96px);
+            transition: transform 1.85s cubic-bezier(0.68, 0, 0.14, 1), filter 1.85s ease;
+            will-change: transform;
+        }
+        .velvet-curtain-left {
+            left: 0;
+            border-right: 3px solid #D4AF37;
+            box-shadow: inset -25px 0 45px rgba(0,0,0,0.9), 35px 0 80px rgba(0,0,0,0.95);
+        }
+        .velvet-curtain-right {
+            right: 0;
+            border-left: 3px solid #D4AF37;
+            box-shadow: inset 25px 0 45px rgba(0,0,0,0.9), -35px 0 80px rgba(0,0,0,0.95);
+        }
+        #pageCurtain.open .velvet-curtain-left {
+            transform: translate3d(-103%, 0, 0) scaleX(0.76) skewX(-4deg);
+            filter: brightness(0.7);
+        }
+        #pageCurtain.open .velvet-curtain-right {
+            transform: translate3d(103%, 0, 0) scaleX(0.76) skewX(4deg);
+            filter: brightness(0.7);
+        }
+        .curtain-stage-box {
+            position: relative;
+            z-index: 5;
+            transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+        }
+        #pageCurtain.spraying .nozzle-head { transform: translateY(4px); }
+        #pageCurtain.open .curtain-stage-box { opacity: 0; transform: scale(1.14); filter: blur(10px); }
+        #pageCurtain.gone { display: none !important; pointer-events: none; }
+
+        @keyframes waveMove { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-18px); } }
+        .liquid-wave { animation: waveMove 2.2s ease-in-out infinite; }
+        .nozzle-head { transition: transform 0.18s ease; }
+
+        @keyframes floatBottle { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-16px) rotate(1.5deg); } }
+        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes rotateReverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        @keyframes marqueeScroll { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+        .animate-bottle-float { animation: floatBottle 6s ease-in-out infinite; }
+        .animate-orbit-1 { animation: rotateSlow 30s linear infinite; }
+        .animate-orbit-2 { animation: rotateReverse 22s linear infinite; }
+        .animate-marquee { display: flex; width: 200%; animation: marqueeScroll 28s linear infinite; }
+
+        .glass-header {
+            background: rgba(250, 247, 242, 0.86);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+        }
+        .dark .glass-header {
+            background: rgba(9, 9, 12, 0.86);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFF5C0 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .perfume-card .card-img { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .perfume-card:hover .card-img { transform: scale(1.08); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090C; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-pearl dark:bg-obsidian text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-gold selection:text-black overflow-x-hidden transition-colors duration-500">
+
+    <!-- 1. REALISTIK 3D BAXMAL PARDA VA ATIR PURKASH ANIMATSIYASI -->
+    <div id="pageCurtain">
+        <div class="velvet-curtain-left"></div>
+        <div class="velvet-curtain-right"></div>
+        <canvas id="sprayMistCanvas" class="absolute inset-0 z-[4] pointer-events-none"></canvas>
+
+        <div class="curtain-stage-box flex flex-col items-center text-center px-6">
+            <div class="relative w-36 h-44 flex items-center justify-center mb-4">
+                <div class="absolute w-32 h-32 rounded-full bg-gold/25 blur-2xl"></div>
+                <svg class="w-32 h-40 relative z-10 drop-shadow-[0_15px_35px_rgba(212,175,55,0.45)]" viewBox="0 0 120 150" fill="none">
+                    <defs>
+                        <clipPath id="flaconInnerClip"><rect x="26" y="46" width="68" height="88" rx="12" /></clipPath>
+                        <linearGradient id="elixirLiquidGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FFF3B0" />
+                            <stop offset="45%" stop-color="#D4AF37" />
+                            <stop offset="100%" stop-color="#7A5805" />
+                        </linearGradient>
+                        <linearGradient id="glassReflection" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.35)" />
+                            <stop offset="30%" stop-color="rgba(255,255,255,0.05)" />
+                            <stop offset="100%" stop-color="rgba(212,175,55,0.2)" />
+                        </linearGradient>
+                    </defs>
+                    <g class="nozzle-head">
+                        <rect x="44" y="10" width="32" height="14" rx="3" fill="#D4AF37" stroke="#FFF3B0" stroke-width="1.2"/>
+                        <rect x="52" y="24" width="16" height="8" fill="#AA820A"/>
+                        <circle cx="60" cy="17" r="2" fill="#09090C"/>
+                    </g>
+                    <rect x="47" y="32" width="26" height="12" rx="2" fill="#1A1A22" stroke="#D4AF37" stroke-width="1.8"/>
+                    <g clip-path="url(#flaconInnerClip)">
+                        <g id="liquidLevelGroup" style="transform: translateY(90px); transition: transform 0.12s linear;">
+                            <path class="liquid-wave" d="M 0 0 Q 30 -6 60 0 T 120 0 T 180 0 L 180 110 L 0 110 Z" fill="url(#elixirLiquidGrad)" opacity="0.92"/>
+                        </g>
+                    </g>
+                    <rect x="22" y="42" width="76" height="96" rx="16" fill="url(#glassReflection)" stroke="#D4AF37" stroke-width="2.8"/>
+                    <rect x="37" y="68" width="46" height="42" rx="4" fill="#09090C" stroke="#D4AF37" stroke-width="1.5"/>
+                    <text x="60" y="88" text-anchor="middle" fill="#D4AF37" font-family="Cormorant Garamond, serif" font-size="9" font-weight="bold">L'ÉLIXIR</text>
+                    <text x="60" y="100" text-anchor="middle" fill="#F5E6B3" font-family="sans-serif" font-size="5.5" letter-spacing="2">EXTRAIT</text>
+                </svg>
+            </div>
+            <span class="text-[10px] uppercase tracking-[0.48em] text-gold block mb-1.5">Haute Parfumerie • Grasse & Tashkent</span>
+            <h1 class="font-serif text-4xl sm:text-5xl text-white font-bold tracking-[0.22em] mb-4">L'ÉLIXIR</h1>
+            <div class="w-64 h-[3px] bg-white/10 rounded-full overflow-hidden mb-3 border border-gold/30">
+                <div id="curtainProgress" class="h-full bg-gradient-to-r from-gold-dark via-gold to-gold-light w-0 transition-all duration-100"></div>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-gold font-mono tracking-widest">
+                <span id="curtainStatusText">ELIKSIR DISTILLATSIYASI...</span>
+                <span id="curtainPercent" class="font-bold">0%</span>
+            </div>
+            <button onclick="skipCurtainImmediately()" class="mt-5 text-[10px] uppercase tracking-[0.3em] text-gray-400 hover:text-gold transition">
+                Pardani ochish <i class="fas fa-angles-right ml-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. TOP BAR -->
+    <div class="bg-obsidian text-gray-300 text-xs py-2.5 px-4 border-b border-gold/20 relative z-40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-gold text-black font-bold text-[10px] uppercase">VIP</span>
+                <span data-i18n="top_bar_promo">O'zbekiston bo'ylab 2 soat ichida bepul ekspress yetkazib berish! Promo-kod: ROYAL15 (-15%)</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-[11px]">
+                <a href="about.html" class="hover:text-gold transition"><i class="fas fa-certificate text-gold mr-1"></i>100% Grasse Sertifikati</a>
+                <a href="contact.html" class="hover:text-gold transition"><i class="fas fa-location-dot text-gold mr-1"></i>Toshkent, Amir Temur 107B</a>
+                <span class="text-gold font-semibold"><i class="fab fa-telegram mr-1"></i>Bot Online: #8846649798</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. HEADER -->
+    <header class="sticky top-0 z-40 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 rounded-full border-2 border-gold flex items-center justify-center bg-obsidian text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300">
+                    <i class="fas fa-crown text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest block leading-none dark:text-white">L'ÉLIXIR</span>
+                    <span class="text-[9px] uppercase tracking-[0.38em] text-gold block mt-0.5">Haute Parfumerie</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-[0.18em] font-semibold">
+                <a href="index.html" class="text-gold border-b-2 border-gold pb-1.5 flex items-center gap-1.5"><i class="fas fa-house text-[10px]"></i><span data-i18n="nav_1">1. Bosh sahifa</span></a>
+                <a href="catalog.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-grip text-[10px] text-gold"></i><span data-i18n="nav_2">2. Katalog</span></a>
+                <a href="collections.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-gem text-[10px] text-gold"></i><span data-i18n="nav_3">3. VIP Kolleksiya</span></a>
+                <a href="about.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-flask text-[10px] text-gold"></i><span data-i18n="nav_4">4. Brend & Notalar</span></a>
+                <a href="contact.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fab fa-telegram text-xs text-gold"></i><span data-i18n="nav_5">5. Aloqa & Xarita</span></a>
+            </nav>
+
+            <div class="flex items-center gap-2.5 sm:gap-3.5">
+                <select id="langSelect" aria-label="Tilni tanlash" class="bg-gray-200/80 dark:bg-white/10 text-xs font-bold uppercase px-3 py-2.5 rounded-xl border border-gold/30 focus:outline-none focus:border-gold cursor-pointer">
+                    <option value="uz" class="text-black">🇺🇿 O'Z</option>
+                    <option value="en" class="text-black">🇬🇧 EN</option>
+                    <option value="ru" class="text-black">🇷🇺 РУ</option>
+                </select>
+                <button id="themeToggleBtn" aria-label="Mavzu" class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition">
+                    <i class="fas fa-sun hidden dark:inline text-gold"></i>
+                    <i class="fas fa-moon dark:hidden text-gray-800"></i>
+                </button>
+                <button onclick="openDrawer('wishDrawer')" class="relative w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition">
+                    <i class="far fa-heart"></i>
+                    <span id="wishCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gold text-black text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+                <button onclick="openDrawer('cartDrawer')" class="relative w-10 h-10 rounded-xl bg-gold text-black flex items-center justify-center hover:bg-gold-light transition shadow-lg">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-obsidian text-gold border border-gold text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+                <button onclick="toggleMobileNav()" class="lg:hidden w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div id="mobileNavBox" class="hidden lg:hidden bg-white dark:bg-charcoal border-b border-gold/30 px-6 py-5 space-y-3 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="block py-2 text-gold border-l-2 border-gold pl-3" data-i18n="nav_1">1. Bosh sahifa</a>
+            <a href="catalog.html" class="block py-2 hover:text-gold transition pl-3" data-i18n="nav_2">2. Katalog</a>
+            <a href="collections.html" class="block py-2 hover:text-gold transition pl-3" data-i18n="nav_3">3. VIP Kolleksiya</a>
+            <a href="about.html" class="block py-2 hover:text-gold transition pl-3" data-i18n="nav_4">4. Brend & Notalar</a>
+            <a href="contact.html" class="block py-2 hover:text-gold transition pl-3" data-i18n="nav_5">5. Aloqa & Xarita</a>
+        </div>
+    </header>
+
+    <!-- 4. INTERAKTIV 3D HERO VITRINASI -->
+    <section class="relative min-h-[88vh] flex items-center overflow-hidden bg-gradient-to-b from-obsidian via-[#13121a] to-pearl dark:to-obsidian text-white py-14 lg:py-20">
+        <div class="absolute inset-0 z-0 opacity-35">
+            <img id="heroBackdropImg" src="https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=1800&q=85" alt="Perfume Backdrop" class="w-full h-full object-cover scale-105 transition-all duration-1000" onerror="fallbackPerfumeImg(this, 'Luxury Atelier')">
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/90 to-obsidian/50"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs uppercase tracking-[0.25em]">
+                        <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                        <span data-i18n="hero_badge">Grasse Extrait de Parfum • 2026 Collection</span>
+                    </div>
+
+                    <h1 class="font-serif text-5xl sm:text-6xl xl:text-7xl font-bold leading-[1.06] tracking-tight">
+                        <span data-i18n="hero_h1_1">Har Bir Tomchida</span>
+                        <span class="gold-text block italic mt-1" data-i18n="hero_h1_2">Qirollik Hashamati</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="hero_p">
+                        Fransiyaning Grass vodiysidan keltirilgan 35% konsentratsiyali sof efir moylari va Kambodja qirollik ud daraxti uyg'unligi. Terida va kiyimda 48 soatgacha saqlanuvchi betakror shleyf.
+                    </p>
+
+                    <div id="heroNotesContainer" class="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-1">
+                        <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-gold/30 text-xs text-gold-light"><i class="fas fa-spa text-gold mr-1.5"></i>Kalabriya Bergamoti</span>
+                        <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-gold/30 text-xs text-gold-light"><i class="fas fa-fire text-gold mr-1.5"></i>Kambodja Qirollik Udi</span>
+                        <span class="px-3.5 py-1.5 rounded-xl bg-white/5 border border-gold/30 text-xs text-gold-light"><i class="fas fa-gem text-gold mr-1.5"></i>Qora Ambra & Oq Mushk</span>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-3">
+                        <a href="catalog.html" class="px-8 py-4 rounded-2xl bg-gold hover:bg-gold-light text-black font-bold text-xs sm:text-sm uppercase tracking-widest transition shadow-xl flex items-center gap-3">
+                            <span data-i18n="btn_go_catalog">To'liq Katalogga O'tish</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <button onclick="buyHeroFlagship()" class="px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-gold/50 text-white font-bold text-xs sm:text-sm uppercase tracking-widest transition flex items-center gap-3">
+                            <i class="fab fa-telegram text-gold text-lg"></i>
+                            <span id="heroQuickBuyText">Tezkor Xarid ($145)</span>
+                        </button>
+                    </div>
+
+                    <!-- 3 ta Flagman Flakon Switcher (HD Rasmlar bilan) -->
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-[11px] uppercase tracking-[0.25em] text-gray-400 mb-3" data-i18n="hero_select_bottle">Vitrinadagi flagman iforni almashtirib ko'ring:</p>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3.5">
+                            <button onclick="selectHeroShowcase(0)" class="hero-switch-btn border-2 border-gold bg-white/10 flex items-center gap-3 p-2 rounded-2xl transition text-left">
+                                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=200&q=80" alt="Oud Imperial" class="w-12 h-12 rounded-xl object-cover" onerror="fallbackPerfumeImg(this, 'Oud')">
+                                <div class="pr-2"><p class="text-xs font-bold text-white">Oud Impérial</p><p class="text-[11px] text-gold">$145 • Extrait</p></div>
+                            </button>
+                            <button onclick="selectHeroShowcase(1)" class="hero-switch-btn border-2 border-transparent bg-white/5 hover:border-gold/50 flex items-center gap-3 p-2 rounded-2xl transition text-left">
+                                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=200&q=80" alt="L'Or de Grasse" class="w-12 h-12 rounded-xl object-cover" onerror="fallbackPerfumeImg(this, 'Rose')">
+                                <div class="pr-2"><p class="text-xs font-bold text-white">L'Or de Grasse</p><p class="text-[11px] text-gold">$160 • Parfum</p></div>
+                            </button>
+                            <button onclick="selectHeroShowcase(2)" class="hero-switch-btn border-2 border-transparent bg-white/5 hover:border-gold/50 flex items-center gap-3 p-2 rounded-2xl transition text-left">
+                                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=200&q=80" alt="Velours Noir" class="w-12 h-12 rounded-xl object-cover" onerror="fallbackPerfumeImg(this, 'Noir')">
+                                <div class="pr-2"><p class="text-xs font-bold text-white">Velours Noir</p><p class="text-[11px] text-gold">$135 • Intense</p></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Flakon Vitrinasi -->
+                <div class="lg:col-span-5 relative flex items-center justify-center">
+                    <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gold/20 blur-3xl"></div>
+                    <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-dashed border-gold/40 animate-orbit-1"></div>
+                    <div class="absolute w-60 h-60 sm:w-80 sm:h-80 rounded-full border border-gold/25 animate-orbit-2"></div>
+
+                    <div class="relative z-10 animate-bottle-float">
+                        <div class="relative w-72 sm:w-80 h-[430px] rounded-3xl overflow-hidden border-2 border-gold/60 shadow-[0_25px_75px_rgba(212,175,55,0.32)] bg-charcoal">
+                            <img id="heroShowcaseImg" src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85" alt="Flagship Perfume" class="w-full h-full object-cover transition-all duration-500" onerror="fallbackPerfumeImg(this, 'Oud Imperial')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+                                <div>
+                                    <span class="text-[10px] uppercase tracking-[0.25em] text-gold block">Extrait de Parfum • 100ML</span>
+                                    <h3 id="heroShowcaseName" class="font-serif text-2xl font-bold text-white">Oud Impérial</h3>
+                                </div>
+                                <span id="heroShowcasePrice" class="px-3.5 py-1.5 rounded-xl bg-gold text-black font-extrabold text-sm">$145</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MARQUEE -->
+    <div class="bg-obsidian border-y border-gold/25 py-3.5 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-xs uppercase tracking-[0.3em] text-gold font-semibold">
+            <span><i class="fas fa-gem mr-2"></i>100% Original Grasse Extrait</span>
+            <span><i class="fas fa-crown mr-2"></i>48 Soatlik Shleyf Kafolati</span>
+            <span><i class="fab fa-telegram mr-2"></i>Telegram Bot Orqali Avtomatik Buyurtma</span>
+            <span><i class="fas fa-gift mr-2"></i>Har Bir Xaridda 2 ta Bepul Sinov Flakoni</span>
+            <span><i class="fas fa-gem mr-2"></i>100% Original Grasse Extrait</span>
+            <span><i class="fas fa-crown mr-2"></i>48 Soatlik Shleyf Kafolati</span>
+            <span><i class="fab fa-telegram mr-2"></i>Telegram Bot Orqali Avtomatik Buyurtma</span>
+            <span><i class="fas fa-gift mr-2"></i>Har Bir Xaridda 2 ta Bepul Sinov Flakoni</span>
+        </div>
+    </div>
+
+    <!-- 6. 5 SAHIFALI ARXITEKTURA VITRINASI (HAR BIR KARTADA HD RASM BILAN!) -->
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2" data-i18n="arch_sub">Sayt Xaritasi • 5 ta Sahifa</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold dark:text-white" data-i18n="arch_title">Butik Bo'limlari Bo'ylab Sayohat</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            <!-- Sahifa 1 -->
+            <a href="index.html" class="group rounded-3xl overflow-hidden border-2 border-gold bg-obsidian text-white shadow-xl flex flex-col justify-between">
+                <div class="relative h-36 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=500&q=80" alt="Page 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="fallbackPerfumeImg(this, 'Page 01')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                    <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-gold text-black text-[10px] font-extrabold uppercase">Sahifa 01 • Aktiv</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-serif text-xl font-bold text-gold">1. Bosh Sahifa</h3>
+                    <p class="text-xs text-gray-300 mt-1">3D Vitrina va Hit atirlar</p>
+                </div>
+            </a>
+
+            <!-- Sahifa 2 -->
+            <a href="catalog.html" class="group rounded-3xl overflow-hidden border border-gold/30 hover:border-gold bg-white dark:bg-charcoal shadow-xl flex flex-col justify-between transition">
+                <div class="relative h-36 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80" alt="Page 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="fallbackPerfumeImg(this, 'Page 02')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase">Sahifa 02</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-serif text-xl font-bold dark:text-white group-hover:text-gold transition">2. Katalog & Filter</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">16 ta atir, 15/50/100ml</p>
+                </div>
+            </a>
+
+            <!-- Sahifa 3 -->
+            <a href="collections.html" class="group rounded-3xl overflow-hidden border border-gold/30 hover:border-gold bg-white dark:bg-charcoal shadow-xl flex flex-col justify-between transition">
+                <div class="relative h-36 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=500&q=80" alt="Page 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="fallbackPerfumeImg(this, 'Page 03')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase">Sahifa 03</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-serif text-xl font-bold dark:text-white group-hover:text-gold transition">3. VIP Kolleksiya</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">5x15ml Set & Gravyura</p>
+                </div>
+            </a>
+
+            <!-- Sahifa 4 -->
+            <a href="about.html" class="group rounded-3xl overflow-hidden border border-gold/30 hover:border-gold bg-white dark:bg-charcoal shadow-xl flex flex-col justify-between transition">
+                <div class="relative h-36 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=500&q=80" alt="Page 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="fallbackPerfumeImg(this, 'Page 04')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase">Sahifa 04</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-serif text-xl font-bold dark:text-white group-hover:text-gold transition">4. Brend & Notalar</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Piramida va Sertifikat</p>
+                </div>
+            </a>
+
+            <!-- Sahifa 5 -->
+            <a href="contact.html" class="group rounded-3xl overflow-hidden border border-gold/30 hover:border-gold bg-white dark:bg-charcoal shadow-xl flex flex-col justify-between transition">
+                <div class="relative h-36 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=500&q=80" alt="Page 5" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="fallbackPerfumeImg(this, 'Page 05')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+                    <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase">Sahifa 05</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-serif text-xl font-bold dark:text-white group-hover:text-gold transition">5. Aloqa & Xarita</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Toshkent butik & Kuzatuv</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. KATEGORIYA BANNERLARI (3 TA HD RASM BILAN) -->
+    <section class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="catalog.html?cat=men" class="group relative h-96 rounded-3xl overflow-hidden shadow-xl border border-gold/25 block">
+                <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=900&q=85" alt="Men" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="fallbackPerfumeImg(this, 'Pour Homme')">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <span class="text-xs uppercase tracking-[0.25em] text-gold">Pour Homme</span>
+                    <h3 class="font-serif text-3xl font-bold mt-1" data-i18n="cat_men">Erkaklar Uchun</h3>
+                    <p class="text-xs text-gray-300 mt-2 mb-4" data-i18n="cat_men_d">Tutunli ud, charm, kedr va qora qalampir uyg'unligi.</p>
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">Katalogda Ochish <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a href="catalog.html?cat=women" class="group relative h-96 rounded-3xl overflow-hidden shadow-xl border border-gold/25 block">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85" alt="Women" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="fallbackPerfumeImg(this, 'Pour Femme')">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <span class="text-xs uppercase tracking-[0.25em] text-gold">Pour Femme</span>
+                    <h3 class="font-serif text-3xl font-bold mt-1" data-i18n="cat_women">Ayollar Uchun</h3>
+                    <p class="text-xs text-gray-300 mt-2 mb-4" data-i18n="cat_women_d">Damashq atirguli, yasmin, Madagaskar vanili va oq mushk.</p>
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">Katalogda Ochish <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a href="catalog.html?cat=unisex" class="group relative h-96 rounded-3xl overflow-hidden shadow-xl border border-gold/25 block">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85" alt="Unisex" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="fallbackPerfumeImg(this, 'Niche Royale')">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <span class="text-xs uppercase tracking-[0.25em] text-gold">Collection Privée</span>
+                    <h3 class="font-serif text-3xl font-bold mt-1" data-i18n="cat_unisex">Unisex & Niche</h3>
+                    <p class="text-xs text-gray-300 mt-2 mb-4" data-i18n="cat_unisex_d">Cheklangan nusxadagi aristokratik selektiv parfyumlar.</p>
+                    <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">Katalogda Ochish <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. 8 TA BESTSELLER ATIRLAR VITRINASI -->
+    <section class="py-20 bg-white/70 dark:bg-charcoal/60 border-y border-gold/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2" data-i18n="hit_sub">Bosh Sahifa Vitrinasi</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold dark:text-white" data-i18n="hit_title">Eng Ko'p Xarid Qilingan Atirlar</h2>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="filterHomeProducts('all')" data-f="all" class="home-filter-btn bg-gold text-black px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">Barchasi (8)</button>
+                    <button onclick="filterHomeProducts('men')" data-f="men" class="home-filter-btn bg-gray-200 dark:bg-white/5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">Erkaklar</button>
+                    <button onclick="filterHomeProducts('women')" data-f="women" class="home-filter-btn bg-gray-200 dark:bg-white/5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">Ayollar</button>
+                    <button onclick="filterHomeProducts('unisex')" data-f="unisex" class="home-filter-btn bg-gray-200 dark:bg-white/5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition">Unisex</button>
+                </div>
+            </div>
+
+            <div id="homeProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+
+            <div class="mt-14 text-center">
+                <a href="catalog.html" class="inline-flex items-center gap-3 px-10 py-4 rounded-2xl border-2 border-gold text-gold hover:bg-gold hover:text-black font-bold text-xs sm:text-sm uppercase tracking-widest transition">
+                    <span data-i18n="btn_see_all_catalog">Barcha 16 ta Atirni 2-Sahifada (Katalogda) Ko'rish</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-obsidian text-gray-300 pt-16 pb-12 border-t border-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+            <div class="md:col-span-4 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold"><i class="fas fa-crown"></i></div>
+                    <span class="font-serif text-2xl font-bold text-white tracking-widest">L'ÉLIXIR</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">Rasmiy 5 sahifali Multi-Page (MPA) Parfyumeriya Butigi. Barcha sahifalar o'zaro `localStorage` va Telegram Bot (`8846649798`) orqali ulangan.</p>
+            </div>
+            <div class="md:col-span-4 space-y-2 text-xs">
+                <h4 class="font-serif text-xl font-bold text-white mb-3">5 Sahifali MPA Navigatsiyasi</h4>
+                <a href="index.html" class="block text-gold font-bold">1. index.html — Bosh sahifa (Aktiv)</a>
+                <a href="catalog.html" class="block hover:text-gold">2. catalog.html — Katalog va Aqlli Filterlar</a>
+                <a href="collections.html" class="block hover:text-gold">3. collections.html — VIP Kolleksiyalar & Gravyura</a>
+                <a href="about.html" class="block hover:text-gold">4. about.html — Brend Tarixi va Notalar</a>
+                <a href="contact.html" class="block hover:text-gold">5. contact.html — Aloqa, Xarita va Buyurtma Kuzatuvi</a>
+            </div>
+            <div class="md:col-span-4 space-y-4">
+                <h4 class="font-serif text-xl font-bold text-white">VIP Klubga Ulanish (-15% Kupon)</h4>
+                <div class="flex gap-2">
+                    <input id="vipPhoneInput" type="tel" placeholder="+998 90 123 45 67" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-gold/40 text-white text-sm focus:outline-none focus:border-gold">
+                    <button onclick="sendVipClubRequest()" class="px-5 py-3 rounded-xl bg-gold hover:bg-gold-light text-black font-bold text-xs uppercase tracking-wider transition shrink-0">
+                        <i class="fab fa-telegram-plane mr-1"></i> Yuborish
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex justify-between text-xs text-gray-500">
+            <p>© 2026 L'Élixir Parfumerie • Sahifa 1 / 5 (`index.html`)</p>
+            <p>Telegram Bot ID: <span class="text-gold font-mono">8846649798</span></p>
+        </div>
+    </footer>
+
+    <!-- SAVAT, SEVIMLILAR VA BUYURTMA MODALLARI -->
+    <div id="drawerBackdrop" onclick="closeDrawers()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
+
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white flex items-center gap-2"><i class="fas fa-bag-shopping text-gold"></i> <span>Xarid Savati</span></h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:text-gold"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cartDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+        <div class="p-5 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-obsidian space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold"><span>Jami:</span><span id="cartDrawerTotal" class="text-gold text-2xl font-serif">$0.00</span></div>
+            <button onclick="openOrderModal()" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-bold text-xs uppercase tracking-widest transition shadow-lg flex items-center justify-center gap-2"><i class="fab fa-telegram text-lg"></i> <span>Telegram Orqali Rasmiylashtirish</span></button>
+        </div>
+    </aside>
+
+    <aside id="wishDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white flex items-center gap-2"><i class="fas fa-heart text-gold"></i> <span>Sevimli Atirlar</span></h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:text-gold"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="wishDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+    </aside>
+
+    <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="bg-white dark:bg-charcoal border-2 border-gold rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gold"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="font-serif text-2xl font-bold dark:text-white mb-4">VIP Buyurtmani Yuborish</h3>
+            <form onsubmit="submitOrderToTelegramBot(event)" class="space-y-4">
+                <input id="orderName" type="text" required placeholder="Ism-familiyangiz *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <input id="orderPhone" type="tel" required placeholder="+998 90 123 45 67 *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <input id="orderAddress" type="text" required placeholder="Yetkazib berish manzili *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <button id="orderSubmitBtn" type="submit" class="w-full py-4 rounded-xl bg-gold text-black font-bold text-xs uppercase tracking-widest"><i class="fas fa-paper-plane mr-2"></i> Buyurtmani Botga Jo'natish</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 space-y-2"></div>
+
+    <script>
+        const BOT_TOKEN = "8526997958:AAFWIa91o0gkqV2sXGHWOsaM9dcbBHW8s_I";
+        const CHAT_ID = "8846649798";
+
+        function fallbackPerfumeImg(imgEl, label = "L'Élixir") {
+            imgEl.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700"><rect width="600" height="700" fill="#0E0E14"/><rect x="195" y="185" width="210" height="300" rx="26" fill="#181822" stroke="#D4AF37" stroke-width="3.5"/><text x="300" y="330" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="24" font-weight="bold">L'ÉLIXIR</text><text x="300" y="365" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="14">${label}</text></svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        const heroShowcases = [
+            { id: 1, name: "Oud Impérial", price: 145, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85", bg: "https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=1800&q=85", notes: ["Kalabriya Bergamoti", "Kambodja Qirollik Udi", "Qora Ambra & Oq Mushk"] },
+            { id: 2, name: "L'Or de Grasse", price: 160, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85", bg: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=1800&q=85", notes: ["Damashq Atirguli", "Eron Za'faroni", "Madagaskar Vanili"] },
+            { id: 4, name: "Velours Noir", price: 135, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85", bg: "https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=1800&q=85", notes: ["Pushti Qalampir", "Toskana Charmi", "Tutunli Vetiver"] }
+        ];
+        let activeHeroIdx = 0;
+
+        const homeProducts = [
+            { id: 1, name: "Oud Impérial Extrait", cat: "men", badge: "BEST SELLER", price: 145, rating: "5.0", heartNote: "Kambodja Udi, Atirgul", baseNote: "Qora Ambra, Mushk", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=85" },
+            { id: 2, name: "L'Or de Grasse Parfum", cat: "women", badge: "ROYAL HIT", price: 160, rating: "5.0", heartNote: "Damashq Atirguli, Yasmin", baseNote: "Madagaskar Vanili", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=85" },
+            { id: 3, name: "Baccarat Élixir Rouge", cat: "unisex", badge: "NICHE ICON", price: 185, rating: "5.0", heartNote: "Misr Yasmini, Kedr", baseNote: "Kulrang Ambra, Mushk", img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=85" },
+            { id: 4, name: "Velours Noir Intense", cat: "men", badge: "HOMME LUXE", price: 135, rating: "4.9", heartNote: "Toskana Charmi, Iris", baseNote: "Tutunli Vetiver, Paçuli", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=85" },
+            { id: 5, name: "Ambre Nuit Absolue", cat: "unisex", badge: "EXTRAIT 35%", price: 165, rating: "5.0", heartNote: "Turkiya Atirguli, Labdanum", baseNote: "Qora Ambra, Sandal", img: "https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=800&q=85" },
+            { id: 6, name: "Vanille Blanche d'Or", cat: "women", badge: "FEMME NEW", price: 125, rating: "4.9", heartNote: "Oq Yasmin, Geliotrop", baseNote: "Burbon Vanili, Tonka", img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=85" },
+            { id: 7, name: "Bois Marocain Privé", cat: "men", badge: "LIMITED", price: 140, rating: "4.8", heartNote: "Atlas Kedri, Sarv", baseNote: "Vetiver, Oq Mushk", img: "https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=800&q=85" },
+            { id: 8, name: "Néroli Portofino Gold", cat: "unisex", badge: "FRESH EDITION", price: 115, rating: "4.9", heartNote: "Apelsin Guli, Lavanda", baseNote: "Ambra, Rozmarin", img: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=800&q=85" }
+        ];
+
+        let currentLang = localStorage.getItem("elixir_lang") || "uz";
+        let currentFilter = "all";
+        let cart = JSON.parse(localStorage.getItem("elixir_cart")) || [];
+        let wishlist = JSON.parse(localStorage.getItem("elixir_wish")) || [];
+        let curtainInterval = null;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            runRealisticVelvetCurtain();
+            initThemeState();
+            initLangState();
+            renderHomeProducts();
+            syncDrawersUI();
+        });
+
+        function runRealisticVelvetCurtain() {
+            let p = 0;
+            const bar = document.getElementById("curtainProgress");
+            const pct = document.getElementById("curtainPercent");
+            const statusTxt = document.getElementById("curtainStatusText");
+            const liquidGroup = document.getElementById("liquidLevelGroup");
+            const curtain = document.getElementById("pageCurtain");
+
+            curtainInterval = setInterval(() => {
+                p += Math.floor(Math.random() * 8) + 5;
+                if (p >= 100) {
+                    p = 100;
+                    clearInterval(curtainInterval);
+                    statusTxt.textContent = "EXTRAIT TAYYOR • PURKALMOQDA...";
+                    curtain.classList.add("spraying");
+                    triggerPerfumeSprayBurst();
+                    setTimeout(() => curtain.classList.add("open"), 450);
+                    setTimeout(() => curtain.classList.add("gone"), 2200);
+                }
+                bar.style.width = p + "%";
+                pct.textContent = p + "%";
+                liquidGroup.style.transform = `translateY(${90 - (p / 100) * 46}px)`;
+            }, 60);
+        }
+
+        function triggerPerfumeSprayBurst() {
+            const canvas = document.getElementById("sprayMistCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+            const w = canvas.width = window.innerWidth, h = canvas.height = window.innerHeight;
+            const cx = w / 2, cy = h / 2 - 75;
+            const droplets = Array.from({ length: 100 }, () => {
+                const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.9;
+                const speed = Math.random() * 9 + 2;
+                return { x: cx, y: cy, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, r: Math.random() * 3 + 0.8, alpha: 0.95, decay: 0.02 };
+            });
+            function renderSpray() {
+                ctx.clearRect(0, 0, w, h);
+                let alive = false;
+                droplets.forEach(d => {
+                    if (d.alpha <= 0) return;
+                    alive = true; d.x += d.vx; d.y += d.vy; d.vy += 0.06; d.alpha -= d.decay;
+                    ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(245, 230, 179, ${Math.max(0, d.alpha)})`; ctx.fill();
+                });
+                if (alive) requestAnimationFrame(renderSpray);
+            }
+            renderSpray();
+        }
+
+        function skipCurtainImmediately() {
+            if (curtainInterval) clearInterval(curtainInterval);
+            const curtain = document.getElementById("pageCurtain");
+            curtain.classList.add("open");
+            setTimeout(() => curtain.classList.add("gone"), 1200);
+        }
+
+        function toggleMobileNav() { document.getElementById("mobileNavBox").classList.toggle("hidden"); }
+
+        function selectHeroShowcase(idx) {
+            activeHeroIdx = idx;
+            const item = heroShowcases[idx];
+            document.getElementById("heroShowcaseImg").src = item.img;
+            document.getElementById("heroBackdropImg").src = item.bg;
+            document.getElementById("heroShowcaseName").textContent = item.name;
+            document.getElementById("heroShowcasePrice").textContent = "$" + item.price;
+            document.getElementById("heroQuickBuyText").textContent = `Tezkor Xarid ($${item.price})`;
+            document.querySelectorAll(".hero-switch-btn").forEach((b, i) => {
+                b.classList.toggle("border-gold", i === idx);
+                b.classList.toggle("border-transparent", i !== idx);
+            });
+        }
+
+        function renderHomeProducts() {
+            const grid = document.getElementById("homeProductsGrid");
+            const list = currentFilter === "all" ? homeProducts : homeProducts.filter(p => p.cat === currentFilter);
+            grid.innerHTML = list.map(p => {
+                const isWished = wishlist.some(w => w.id === p.id);
+                return `
+                <div class="perfume-card bg-white dark:bg-obsidian rounded-3xl overflow-hidden border border-gold/20 shadow-xl flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-80 overflow-hidden bg-gray-900">
+                            <img src="${p.img}" alt="${p.name}" class="card-img w-full h-full object-cover" onerror="fallbackPerfumeImg(this, '${p.name.replace(/'/g, "")}')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <span class="absolute top-4 left-4 bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">${p.badge}</span>
+                            <button onclick="toggleWishlistItem(${p.id})" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-obsidian/80 text-white flex items-center justify-center hover:scale-110 transition">
+                                <i class="${isWished ? 'fas text-red-500' : 'far text-white'} fa-heart"></i>
+                            </button>
+                            <div class="absolute bottom-3 left-4 right-4 flex justify-between items-center text-xs text-white">
+                                <span class="bg-black/60 px-2.5 py-1 rounded-md border border-white/10">100 ML • Extrait</span>
+                                <span class="text-gold font-bold"><i class="fas fa-star mr-1"></i>${p.rating}</span>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-[10px] uppercase tracking-widest text-gold font-bold block mb-1">${p.cat.toUpperCase()}</span>
+                            <h3 class="font-serif text-2xl font-bold dark:text-white mb-1">${p.name}</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1"><i class="fas fa-feather-pointed text-gold mr-1"></i>${p.heartNote}, ${p.baseNote}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+                        <div><span class="text-[10px] text-gray-400 uppercase block">Narxi:</span><span class="font-serif text-2xl font-bold text-gold">$${p.price}</span></div>
+                        <div class="flex gap-2">
+                            <button onclick="addItemToCart(${p.id})" class="px-4 py-2.5 rounded-xl bg-gold hover:bg-gold-light text-black font-bold text-xs uppercase tracking-wider transition"><i class="fas fa-bag-shopping mr-1"></i>Savatga</button>
+                            <button onclick="addItemToCart(${p.id}); openOrderModal();" class="w-10 h-10 rounded-xl bg-obsidian text-gold border border-gold/40 hover:bg-gold hover:text-black transition flex items-center justify-center"><i class="fab fa-telegram-plane"></i></button>
+                        </div>
+                    </div>
+                </div>`;
+            }).join("");
+        }
+
+        function filterHomeProducts(cat) {
+            currentFilter = cat;
+            document.querySelectorAll(".home-filter-btn").forEach(btn => {
+                btn.className = btn.dataset.f === cat
+                    ? "home-filter-btn bg-gold text-black px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition"
+                    : "home-filter-btn bg-gray-200 dark:bg-white/5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition";
+            });
+            renderHomeProducts();
+        }
+
+        function addItemToCart(id) {
+            const prod = homeProducts.find(p => p.id === id);
+            if (!prod) return;
+            const exist = cart.find(c => c.id === id);
+            if (exist) exist.qty += 1;
+            else cart.push({ ...prod, qty: 1 });
+            saveSharedState();
+            notifyToast(`${prod.name} savatga qo'shildi!`);
+        }
+
+        function updateCartQty(id, delta) {
+            const item = cart.find(c => c.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+            saveSharedState();
+        }
+
+        function toggleWishlistItem(id) {
+            const idx = wishlist.findIndex(w => w.id === id);
+            const prod = homeProducts.find(p => p.id === id);
+            if (idx > -1) wishlist.splice(idx, 1);
+            else if (prod) wishlist.push(prod);
+            saveSharedState();
+            renderHomeProducts();
+        }
+
+        function saveSharedState() {
+            localStorage.setItem("elixir_cart", JSON.stringify(cart));
+            localStorage.setItem("elixir_wish", JSON.stringify(wishlist));
+            syncDrawersUI();
+        }
+
+        function syncDrawersUI() {
+            document.getElementById("cartCountBadge").textContent = cart.reduce((s, i) => s + i.qty, 0);
+            document.getElementById("wishCountBadge").textContent = wishlist.length;
+            const cartList = document.getElementById("cartDrawerList");
+            if (cart.length === 0) {
+                cartList.innerHTML = `<p class="text-center text-gray-400 py-12 text-sm">Savatingiz hozircha bo'sh</p>`;
+                document.getElementById("cartDrawerTotal").textContent = "$0.00";
+            } else {
+                let sum = 0;
+                cartList.innerHTML = cart.map(item => {
+                    sum += item.price * item.qty;
+                    return `<div class="flex items-center gap-3 p-3 rounded-2xl bg-gray-100 dark:bg-obsidian border border-gold/20"><img src="${item.img}" class="w-16 h-16 rounded-xl object-cover" onerror="fallbackPerfumeImg(this, 'VIP')"><div class="flex-1"><h4 class="font-serif font-bold text-base dark:text-white">${item.name}</h4><p class="text-gold text-xs font-bold">$${item.price} x ${item.qty} = $${item.price * item.qty}</p><div class="flex items-center gap-2 mt-1.5"><button onclick="updateCartQty(${item.id}, -1)" class="w-6 h-6 rounded bg-white dark:bg-charcoal border border-gold/30 text-xs">-</button><span class="text-xs font-bold">${item.qty}</span><button onclick="updateCartQty(${item.id}, 1)" class="w-6 h-6 rounded bg-white dark:bg-charcoal border border-gold/30 text-xs">+</button></div></div></div>`;
+                }).join("");
+                document.getElementById("cartDrawerTotal").textContent = `$${sum.toFixed(2)}`;
+            }
+            const wishList = document.getElementById("wishDrawerList");
+            wishList.innerHTML = wishlist.length === 0 ? `<p class="text-center text-gray-400 py-12 text-sm">Sevimlilar ro'yxati bo'sh</p>` : wishlist.map(item => `<div class="flex items-center gap-3 p-3 rounded-2xl bg-gray-100 dark:bg-obsidian border border-gold/20"><img src="${item.img}" class="w-16 h-16 rounded-xl object-cover"><div class="flex-1"><h4 class="font-serif font-bold text-base dark:text-white">${item.name}</h4><p class="text-gold text-xs font-bold">$${item.price}</p></div><button onclick="addItemToCart(${item.id})" class="px-3 py-2 rounded-lg bg-gold text-black text-xs font-bold">+ Savat</button></div>`).join("");
+        }
+
+        async function postToTelegramBot(htmlMsg) {
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ chat_id: CHAT_ID, text: htmlMsg, parse_mode: "HTML" }) });
+                return res.ok;
+            } catch (err) { return false; }
+        }
+
+        function buyHeroFlagship() { addItemToCart(heroShowcases[activeHeroIdx].id); openOrderModal(); }
+        function openOrderModal() { if (cart.length === 0) return notifyToast("Avval savatga atir qo'shing!"); closeDrawers(); const m = document.getElementById("orderModal"); m.classList.remove("hidden"); m.classList.add("flex"); }
+        function closeOrderModal() { document.getElementById("orderModal").classList.add("hidden"); document.getElementById("orderModal").classList.remove("flex"); }
+
+        async function submitOrderToTelegramBot(e) {
+            e.preventDefault();
+            const name = document.getElementById("orderName").value.trim();
+            const phone = document.getElementById("orderPhone").value.trim();
+            const addr = document.getElementById("orderAddress").value.trim();
+            const orderId = "ELX-" + Math.floor(100000 + Math.random() * 900000);
+            let total = 0;
+            const lines = cart.map((i, idx) => { const sub = i.price * i.qty; total += sub; return `${idx + 1}. <b>${i.name}</b> (${i.qty} x $${i.price}) = <b>$${sub}</b>`; }).join("\n");
+            const ok = await postToTelegramBot(`👑 <b>L'ÉLIXIR — YANGI BUYURTMA (#${orderId})</b>\n👤 <b>Mijoz:</b> ${name}\n📞 <b>Telefon:</b> <code>${phone}</code>\n📍 <b>Manzil:</b> ${addr}\n\n🛍 <b>Atirlar:</b>\n${lines}\n\n💰 <b>JAMI: $${total.toFixed(2)}</b>`);
+            if (ok) {
+                const orders = JSON.parse(localStorage.getItem("elixir_orders")) || [];
+                orders.unshift({ id: orderId, name, phone, total, date: new Date().toLocaleDateString() });
+                localStorage.setItem("elixir_orders", JSON.stringify(orders));
+                cart = []; saveSharedState(); closeOrderModal(); e.target.reset();
+                notifyToast(`Buyurtma #${orderId} Telegram botga yuborildi!`);
+            }
+        }
+
+        async function sendVipClubRequest() {
+            const inp = document.getElementById("vipPhoneInput");
+            if (!inp.value.trim()) return notifyToast("Telefon raqamingizni kiriting!");
+            const ok = await postToTelegramBot(`✨ <b>VIP KLUB OBUNASI</b>\n📞 Raqam: <code>${inp.value.trim()}</code>`);
+            if (ok) { inp.value = ""; notifyToast("ROYAL15 kuponi faollashdi!"); }
+        }
+
+        function initThemeState() {
+            const saved = localStorage.getItem("elixir_theme") || "dark";
+            document.documentElement.classList.toggle("dark", saved === "dark");
+            document.getElementById("themeToggleBtn").addEventListener("click", () => { const isDark = document.documentElement.classList.toggle("dark"); localStorage.setItem("elixir_theme", isDark ? "dark" : "light"); });
+        }
+        function initLangState() {
+            const sel = document.getElementById("langSelect"); sel.value = currentLang;
+            sel.addEventListener("change", (e) => { currentLang = e.target.value; localStorage.setItem("elixir_lang", currentLang); });
+        }
+        function openDrawer(id) { document.getElementById("drawerBackdrop").classList.remove("hidden"); document.getElementById(id).classList.remove("translate-x-full"); }
+        function closeDrawers() { document.getElementById("drawerBackdrop").classList.add("hidden"); document.getElementById("cartDrawer").classList.add("translate-x-full"); document.getElementById("wishDrawer").classList.add("translate-x-full"); }
+        function notifyToast(msg) {
+            const box = document.getElementById("toastContainer");
+            const el = document.createElement("div");
+            el.className = "px-5 py-3.5 rounded-2xl bg-obsidian text-white border border-gold shadow-2xl flex items-center gap-3 text-xs font-bold";
+            el.innerHTML = `<i class="fas fa-circle-check text-gold text-base"></i><span>${msg}</span>`;
+            box.appendChild(el);
+            setTimeout(() => el.remove(), 3200);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Élixir Parfumerie | 3. VIP Kolleksiya, Discovery Set & Gravyura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Alex+Brush&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#F5E6B3', dark: '#9A7B1C' },
+                        obsidian: '#09090C',
+                        charcoal: '#121217',
+                        pearl: '#FAF7F2'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        script: ['Alex Brush', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-header { background: rgba(250, 247, 242, 0.86); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(212, 175, 55, 0.22); }
+        .dark .glass-header { background: rgba(9, 9, 12, 0.86); border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .gold-text { background: linear-gradient(135deg, #D4AF37 0%, #FFF5C0 50%, #AA820A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .engraved-foil { background: linear-gradient(90deg, #C59B27 0%, #FFF3B0 45%, #D4AF37 70%, #9A7B1C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .coffret-card { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .coffret-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -12px rgba(212, 175, 55, 0.25); }
+        .coffret-card .card-img { transition: transform 0.7s ease; }
+        .coffret-card:hover .card-img { transform: scale(1.08); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090C; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-pearl dark:bg-obsidian text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-gold selection:text-black overflow-x-hidden transition-colors duration-500">
+
+    <!-- TOP BAR -->
+    <div class="bg-obsidian text-gray-300 text-xs py-2.5 px-4 border-b border-gold/20 relative z-40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-gold text-black font-bold text-[10px] uppercase">BESPOKE PRIVÉ</span>
+                <span>Har bir VIP Sovg'a Naboriga oltin tabriknoma va flakonga ism o'yib yozish xizmati!</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-[11px]">
+                <a href="catalog.html" class="hover:text-gold transition"><i class="fas fa-grip text-gold mr-1"></i>Katalogga o'tish</a>
+                <span class="text-gold font-semibold"><i class="fab fa-telegram mr-1"></i>Bot Active: #8846649798</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 glass-header transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 rounded-full border-2 border-gold flex items-center justify-center bg-obsidian text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300"><i class="fas fa-crown text-lg"></i></div>
+                <div>
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest block leading-none dark:text-white">L'ÉLIXIR</span>
+                    <span class="text-[9px] uppercase tracking-[0.38em] text-gold block mt-0.5">Haute Parfumerie</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7 text-xs uppercase tracking-[0.18em] font-semibold">
+                <a href="index.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-house text-[10px] text-gold"></i><span>1. Bosh sahifa</span></a>
+                <a href="catalog.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-grip text-[10px] text-gold"></i><span>2. Katalog</span></a>
+                <a href="collections.html" class="text-gold border-b-2 border-gold pb-1.5 flex items-center gap-1.5"><i class="fas fa-gem text-[10px]"></i><span>3. VIP Kolleksiya</span></a>
+                <a href="about.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fas fa-flask text-[10px] text-gold"></i><span>4. Brend & Notalar</span></a>
+                <a href="contact.html" class="hover:text-gold transition pb-1.5 flex items-center gap-1.5"><i class="fab fa-telegram text-xs text-gold"></i><span>5. Aloqa & Xarita</span></a>
+            </nav>
+
+            <div class="flex items-center gap-2.5 sm:gap-3.5">
+                <select id="langSelect" aria-label="Language" class="bg-gray-200/80 dark:bg-white/10 text-xs font-bold uppercase px-3 py-2.5 rounded-xl border border-gold/30">
+                    <option value="uz" class="text-black">🇺🇿 O'Z</option>
+                    <option value="en" class="text-black">🇬🇧 EN</option>
+                    <option value="ru" class="text-black">🇷🇺 РУ</option>
+                </select>
+                <button id="themeToggleBtn" aria-label="Theme" class="w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition">
+                    <i class="fas fa-sun hidden dark:inline text-gold"></i><i class="fas fa-moon dark:hidden text-gray-800"></i>
+                </button>
+                <button onclick="openDrawer('wishDrawer')" class="relative w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center hover:bg-gold hover:text-black transition">
+                    <i class="far fa-heart"></i>
+                    <span id="wishCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gold text-black text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+                <button onclick="openDrawer('cartDrawer')" class="relative w-10 h-10 rounded-xl bg-gold text-black flex items-center justify-center hover:bg-gold-light transition shadow-lg">
+                    <i class="fas fa-bag-shopping"></i>
+                    <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-obsidian text-gold border border-gold text-[10px] font-extrabold flex items-center justify-center">0</span>
+                </button>
+                <button onclick="toggleMobileNav()" class="lg:hidden w-10 h-10 rounded-xl border border-gold/30 flex items-center justify-center text-gold"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div id="mobileNavBox" class="hidden lg:hidden bg-white dark:bg-charcoal border-b border-gold/30 px-6 py-5 space-y-3 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="block py-2 hover:text-gold pl-3">1. Bosh sahifa</a>
+            <a href="catalog.html" class="block py-2 hover:text-gold pl-3">2. Katalog</a>
+            <a href="collections.html" class="block py-2 text-gold border-l-2 border-gold pl-3">3. VIP Kolleksiya</a>
+            <a href="about.html" class="block py-2 hover:text-gold pl-3">4. Brend & Notalar</a>
+            <a href="contact.html" class="block py-2 hover:text-gold pl-3">5. Aloqa & Xarita</a>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="relative py-16 sm:py-22 bg-obsidian text-white overflow-hidden border-b border-gold/30">
+        <div class="absolute inset-0 opacity-35">
+            <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=1800&q=85" alt="VIP Luxury Coffrets" class="w-full h-full object-cover" onerror="fallbackPerfumeImg(this, 'VIP Coffrets')">
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/90 to-obsidian/45"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs uppercase tracking-[0.25em]"><i class="fas fa-gem"></i><span>L'Art Du Cadeau • Qirollik Sovg'alari</span></span>
+                <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">Eksklyuziv Sovg'a Naborlari & <span class="gold-text italic block">Shaxsiy Gravyura Studiyasi</span></h1>
+                <p class="text-gray-300 text-sm sm:text-base max-w-2xl">O'z didingizga mos 5x15ml Discovery Set yig'ing, tayyor qirollik sandiqchalarini tanlang yoki flakon ustiga oltin harflar bilan ism o'ydiring.</p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="#discovery-builder" class="px-5 py-3.5 rounded-xl bg-gold text-black font-bold text-xs uppercase tracking-widest"><i class="fas fa-box-open mr-1.5"></i>5x15ml Set Yig'ish</a>
+                    <a href="#engraving-studio" class="px-5 py-3.5 rounded-xl bg-white/10 border border-gold/50 text-white font-bold text-xs uppercase tracking-widest"><i class="fas fa-pen-nib text-gold mr-1.5"></i>Ism O'yib Yozish</a>
+                </div>
+            </div>
+            <div class="lg:col-span-4">
+                <div class="relative h-60 rounded-3xl overflow-hidden border-2 border-gold/50 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=85" alt="Royal Gift Box" class="w-full h-full object-cover" onerror="fallbackPerfumeImg(this, 'Royal Coffret')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gold font-bold">Bespoke Packaging</span>
+                        <p class="font-serif text-xl font-bold">Oltin Shoyi Lenta & Mum Muhr Bepul</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5x15ML DISCOVERY SET KONSTRUKTORI -->
+    <section id="discovery-builder" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2">Interaktiv Konstruktor • 5 x 15 ML Extrait</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-bold dark:text-white">Shaxsiy Discovery Set Qutingizni Yig'ing</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-5 bg-obsidian text-white rounded-3xl p-6 sm:p-8 border-2 border-gold shadow-2xl lg:sticky lg:top-24 space-y-6">
+                <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=200&q=80" alt="Box" class="w-12 h-12 rounded-xl object-cover border border-gold/50">
+                        <div><span class="text-[10px] uppercase tracking-[0.3em] text-gold block">Royal Velvet Coffret</span><h3 class="font-serif text-2xl font-bold">Sizning 5x15ml Qutingiz</h3></div>
+                    </div>
+                    <span id="boxSlotCounter" class="px-3.5 py-1.5 rounded-full bg-gold text-black font-extrabold text-xs">3 / 5</span>
+                </div>
+
+                <div id="discoverySlotsGrid" class="grid grid-cols-5 gap-2.5 py-2"></div>
+                <div id="discoverySelectedList" class="space-y-2 min-h-[150px] bg-white/5 rounded-2xl p-4 border border-gold/20 text-xs"></div>
+
+                <div class="pt-2 border-t border-white/10 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gold font-bold">VIP Set Narxi (5x15ml):</span>
+                        <span class="font-serif text-3xl font-bold text-gold">$125.00</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="autoFillBestDiscovery()" class="py-3 px-4 rounded-xl bg-white/10 border border-gold/40 text-xs font-bold uppercase"><i class="fas fa-wand-magic-sparkles text-gold mr-1"></i> Avto-5 Hit</button>
+                        <button onclick="clearDiscoveryBox()" class="py-3 px-4 rounded-xl bg-white/5 border border-white/10 text-xs font-bold uppercase text-gray-300"><i class="fas fa-rotate-left mr-1"></i> Tozalash</button>
+                    </div>
+                    <button onclick="addCustomDiscoveryToCart()" class="w-full py-4 rounded-xl bg-gold hover:bg-gold-light text-black font-extrabold text-xs uppercase tracking-widest"><i class="fas fa-bag-shopping mr-1.5"></i>5x15ml Setni Savatga Qo'shish ($125)</button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div id="scentPickerGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRAVYURA STUDIYASI -->
+    <section id="engraving-studio" class="py-20 bg-white/75 dark:bg-charcoal/70 border-y border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5">
+                <div class="relative rounded-3xl overflow-hidden border-2 border-gold shadow-2xl bg-obsidian h-[490px]">
+                    <img id="engravePreviewImg" src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85" alt="Engraved Bottle" class="w-full h-full object-cover opacity-85" onerror="fallbackPerfumeImg(this, 'Bespoke Edition')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/30"></div>
+                    <div class="absolute inset-x-8 bottom-24 bg-obsidian/90 backdrop-blur-md border-2 border-gold p-5 rounded-2xl text-center">
+                        <span class="text-[9px] uppercase tracking-[0.4em] text-gray-400 block mb-1">MAISON L'ÉLIXIR • BESPOKE EDITION</span>
+                        <h4 id="engraveBottleTitle" class="font-serif text-lg font-bold text-white mb-2">Oud Impérial Extrait</h4>
+                        <div class="py-2 border-y border-gold/30 my-1">
+                            <span id="liveEngravedText" class="engraved-foil font-serif text-2xl sm:text-3xl font-bold tracking-[0.18em] block">SARDORBEK</span>
+                        </div>
+                        <span id="liveGiftNotePreview" class="text-[11px] text-gray-300 italic block mt-1.5">"Unutilmas kunimiz uchun maxsus"</span>
+                    </div>
+                    <div class="absolute bottom-5 inset-x-8 flex justify-between items-center text-xs text-gray-300">
+                        <span>24K Oltin Lazer Gravyurasi</span>
+                        <span id="engraveTotalPriceBadge" class="text-gold font-serif text-2xl font-bold">$160.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold block mb-2">Bespoke Personalization Atelier</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold dark:text-white">Flakon Ustiga Oltin Harflar Bilan Ism O'ydiring</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white dark:bg-obsidian p-6 rounded-3xl border border-gold/25 shadow-lg">
+                    <div class="sm:col-span-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2.5">1. Gravyura uchun 100ml Flakonni tanlang (Rasmli):</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="engraveBottleCards"></div>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">2. Flakondagi Yozuv:</label>
+                        <input id="engraveInputText" oninput="updateEngravingPreview()" type="text" maxlength="16" value="SARDORBEK" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-charcoal border border-gold/40 text-sm font-bold uppercase tracking-widest">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-2">3. Tabriknoma Matni:</label>
+                        <input id="engraveCardNote" oninput="updateEngravingPreview()" type="text" maxlength="65" value="Unutilmas kunimiz uchun maxsus" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-charcoal border border-gold/40 text-sm">
+                    </div>
+                    <div class="sm:col-span-2 flex flex-wrap gap-3 pt-2">
+                        <button onclick="addEngravedBottleToCart(false)" class="flex-1 py-4 px-6 rounded-xl bg-gold text-black font-extrabold text-xs uppercase tracking-widest"><i class="fas fa-pen-fancy mr-1.5"></i>Gravyurali Flakonni Savatga Qo'shish</button>
+                        <button onclick="addEngravedBottleToCart(true)" class="py-4 px-6 rounded-xl bg-obsidian text-gold border border-gold font-bold text-xs uppercase tracking-widest"><i class="fab fa-telegram mr-1.5"></i>Telegramdan Buyurtma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 TA TAYYOR SOVG'A NABORLARI -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold dark:text-white mb-10 text-center">Tayyor VIP Sovg'a Naborlari</h2>
+        <div id="giftSetsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian text-gray-300 pt-14 pb-12 border-t border-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center text-xs text-gray-500 gap-4">
+            <span>© 2026 L'Élixir Haute Parfumerie • Sahifa 3 / 5 (`collections.html`)</span>
+            <div class="flex gap-4 text-gold">
+                <a href="index.html">1. Bosh sahifa</a>
+                <a href="catalog.html">2. Katalog</a>
+                <a href="about.html">4. Brend & Notalar</a>
+                <a href="contact.html">5. Aloqa</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DRAWERS & ORDER MODAL -->
+    <div id="drawerBackdrop" onclick="closeDrawers()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden"></div>
+
+    <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white"><i class="fas fa-bag-shopping text-gold mr-2"></i>Xarid Savati</h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cartDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+        <div class="p-5 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-obsidian space-y-4">
+            <div class="flex justify-between items-center text-lg font-bold"><span>Jami summa:</span><span id="cartDrawerTotal" class="text-gold text-2xl font-serif">$0.00</span></div>
+            <button onclick="openOrderModal()" class="w-full py-4 rounded-xl bg-gold text-black font-bold text-xs uppercase tracking-widest"><i class="fab fa-telegram text-lg mr-1"></i> Telegram Orqali Rasmiylashtirish</button>
+        </div>
+    </aside>
+
+    <aside id="wishDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-charcoal z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl border-l border-gold/30">
+        <div class="p-5 border-b border-gray-200 dark:border-white/10 flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-bold dark:text-white"><i class="fas fa-heart text-gold mr-2"></i>Sevimli To'plamlar</h3>
+            <button onclick="closeDrawers()" class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="wishDrawerList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+    </aside>
+
+    <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="bg-white dark:bg-charcoal border-2 border-gold rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeOrderModal()" class="absolute top-5 right-5 text-gray-400"><i class="fas fa-times text-xl"></i></button>
+            <h3 class="font-serif text-2xl font-bold dark:text-white mb-4">VIP Kolleksiya Buyurtmasi</h3>
+            <form onsubmit="submitOrderToTelegramBot(event)" class="space-y-4">
+                <input id="orderName" type="text" required placeholder="Ism-familiyangiz *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <input id="orderPhone" type="tel" required placeholder="+998 90 123 45 67 *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <input id="orderAddress" type="text" required placeholder="Yetkazib berish manzili *" class="w-full px-4 py-3 rounded-xl bg-gray-100 dark:bg-obsidian border border-gold/30">
+                <button id="orderSubmitBtn" type="submit" class="w-full py-4 rounded-xl bg-gold text-black font-bold text-xs uppercase tracking-widest"><i class="fas fa-paper-plane mr-2"></i> Buyurtmani Botga Jo'natish</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 space-y-2"></div>
+
+    <script>
+        const BOT_TOKEN = "8526997958:AAFWIa91o0gkqV2sXGHWOsaM9dcbBHW8s_I";
+        const CHAT_ID = "8846649798";
+
+        function fallbackPerfumeImg(imgEl, label = "L'Élixir VIP") {
+            imgEl.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700"><rect width="600" height="700" fill="#0E0E14"/><rect x="130" y="150" width="340" height="390" rx="24" fill="#181822" stroke="#D4AF37" stroke-width="3.5"/><text x="300" y="320" text-anchor="middle" fill="#D4AF37" font-family="serif" font-size="24" font-weight="bold">L'ÉLIXIR PRIVÉ</text><text x="300" y="360" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="15">${label}</text></svg>`;
+            imgEl.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        const miniScents = [
+            { id: 1, name: "Oud Impérial", note: "Kambodja udi & Za'faron", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name: "L'Or de Grasse", note: "Damashq atirguli & Vanil", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, name: "Baccarat Élixir", note: "Misr yasmini & Kulrang ambra", img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=400&q=80" },
+            { id: 4, name: "Velours Noir", note: "Toskana charmi & Kardamon", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=400&q=80" },
+            { id: 5, name: "Ambre Nuit", note: "Qora ambra & Bergamot", img: "https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=400&q=80" },
+            { id: 6, name: "Vanille Blanche", note: "Burbon vanili & Kokos suti", img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=400&q=80" },
+            { id: 7, name: "Bois Marocain", note: "Atlas kedri & Pushti murch", img: "https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=400&q=80" },
+            { id: 8, name: "Néroli Gold", note: "Sitsiliya limoni & Neroli", img: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=400&q=80" },
+            { id: 9, name: "Santal Royal 33", note: "Avstraliya sandali & Iris", img: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=400&q=80" },
+            { id: 10, name: "Tabac Légende", note: "Tamaki bargi & Kakao", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=400&q=80" }
+        ];
+
+        const engravableBottles = [
+            { id: 301, name: "Oud Impérial Extrait", short: "Oud Impérial", basePrice: 145, engraveFee: 15, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85" },
+            { id: 302, name: "L'Or de Grasse Parfum", short: "L'Or de Grasse", basePrice: 160, engraveFee: 15, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85" },
+            { id: 303, name: "Baccarat Élixir Rouge", short: "Baccarat Rouge", basePrice: 185, engraveFee: 15, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=85" },
+            { id: 304, name: "Velours Noir Intense", short: "Velours Noir", basePrice: 135, engraveFee: 15, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85" }
+        ];
+
+        const luxuryGiftSets = [
+            { id: 201, name: "Coffret Impérial d'Or (Qirollik Sandig'i)", badge: "ROYAL EDITION", price: 290, oldPrice: 340, contents: "Oud Impérial (100ml) + Baccarat Élixir (50ml) + Oltin Atomayzer", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=85" },
+            { id: 202, name: "Duo Amour Éternel (His & Hers Set)", badge: "COUPLE HIT", price: 245, oldPrice: 295, contents: "Velours Noir (100ml Erkaklar) + L'Or de Grasse (100ml Ayollar)", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=85" },
+            { id: 203, name: "La Collection Grasse (8 x 15ml Wardrobe)", badge: "8 SCENTS BOX", price: 180, oldPrice: 220, contents: "8 xil eng mashhur Extrait atirlar (har biri 15ml dan)", img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=85" },
+            { id: 204, name: "Sultanat d'Oud Privé Trilogy", badge: "OUD LOVERS", price: 260, oldPrice: 310, contents: "Oud Impérial (50ml) + Oud Satin (50ml) + Black Afgano (50ml)", img: "https://images.unsplash.com/photo-1595425970377-c9703bc48b39?auto=format&fit=crop&w=800&q=85" },
+            { id: 205, name: "Voyageur Gold Atomizer Set", badge: "TRAVEL LUXE", price: 110, oldPrice: 135, contents: "24K Oltin Qobiqli Magnitli Keyc + 3 x 15ml Zaxira Kapsula", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=85" },
+            { id: 206, name: "Symphonie de Fleurs & Vanille", badge: "FOR HER VIP", price: 215, oldPrice: 260, contents: "Fleur Narcotique (100ml) + Vanille Blanche (50ml)", img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=85" }
+        ];
+
+        let currentLang = localStorage.getItem("elixir_lang") || "uz";
+        let discoveryBox = [1, 2, 3];
+        let activeEngraveBottleIdx = 0;
+        let cart = JSON.parse(localStorage.getItem("elixir_cart")) || [];
+        let wishlist = JSON.parse(localStorage.getItem("elixir_wish")) || [];
+
+        window.addEventListener("DOMContentLoaded", () => {
+            initThemeState();
+            initLangState();
+            renderDiscoveryBuilder();
+            renderEngraveBottleCards();
+            updateEngravingPreview();
+            renderGiftSets();
+            syncDrawersUI();
+        });
+
+        function toggleMobileNav() { document.getElementById("mobileNavBox").classList.toggle("hidden"); }
+
+        function renderDiscoveryBuilder() {
+            const slotsGrid = document.getElementById("discoverySlotsGrid");
+            const listContainer = document.getElementById("discoverySelectedList");
+            document.getElementById("boxSlotCounter").textContent = `${discoveryBox.length} / 5`;
+
+            let slotsHtml = "";
+            for (let i = 0; i < 5; i++) {
+                const scentId = discoveryBox[i];
+                if (scentId) {
+                    const s = miniScents.find(x => x.id === scentId);
+                    slotsHtml += `<div onclick="removeFromDiscoverySlot(${i})" class="relative group cursor-pointer rounded-2xl overflow-hidden border-2 border-gold h-28 bg-charcoal"><img src="${s.img}" class="w-full h-full object-cover"><span class="absolute bottom-1 inset-x-1 text-[9px] font-bold text-center bg-black/80 text-gold rounded px-1 truncate">${s.name}</span></div>`;
+                } else {
+                    slotsHtml += `<div class="relative rounded-2xl border-2 border-dashed border-gold/40 h-28 overflow-hidden flex flex-col items-center justify-center text-white bg-charcoal"><img src="https://images.unsplash.com/photo-1608528577891-eb055944f2e7?auto=format&fit=crop&w=300&q=60" class="absolute inset-0 w-full h-full object-cover opacity-25"><div class="relative z-10 text-center"><i class="fas fa-plus text-gold text-sm block"></i><span class="text-[10px] font-bold">Slot #${i + 1}</span></div></div>`;
+                }
+            }
+            slotsGrid.innerHTML = slotsHtml;
+
+            listContainer.innerHTML = discoveryBox.map((id, idx) => {
+                const s = miniScents.find(x => x.id === id);
+                return `<div class="flex items-center justify-between py-1.5 border-b border-white/10"><div class="flex items-center gap-2"><img src="${s.img}" class="w-6 h-6 rounded object-cover"><span class="font-semibold text-white"><strong class="text-gold mr-1">#${idx + 1}</strong> ${s.name} (15ml)</span></div><button onclick="removeFromDiscoverySlot(${idx})" class="text-gray-400 hover:text-red-400"><i class="fas fa-trash-can"></i></button></div>`;
+            }).join("");
+
+            document.getElementById("scentPickerGrid").innerHTML = miniScents.map(s => {
+                const countInBox = discoveryBox.filter(id => id === s.id).length;
+                return `<div class="p-3.5 rounded-2xl bg-white dark:bg-charcoal border ${countInBox > 0 ? 'border-gold' : 'border-gold/20'} flex items-center gap-3.5 justify-between"><div class="flex items-center gap-3"><img src="${s.img}" class="w-16 h-16 rounded-xl object-cover border border-gold/30"><div><h4 class="font-serif font-bold text-lg dark:text-white">${s.name}</h4><p class="text-[11px] text-gray-400">${s.note}</p></div></div><button onclick="addScentToDiscovery(${s.id})" class="px-3.5 py-2.5 rounded-xl bg-gold text-black font-bold text-xs uppercase">+ Qo'shish</button></div>`;
+            }).join("");
+        }
+
+        function addScentToDiscovery(id) { if (discoveryBox.length >= 5) return notifyToast("Quti to'ldi (5/5)!"); discoveryBox.push(id); renderDiscoveryBuilder(); }
+        function removeFromDiscoverySlot(idx) { discoveryBox.splice(idx, 1); renderDiscoveryBuilder(); }
+        function autoFillBestDiscovery() { discoveryBox = [1, 2, 3, 4, 5]; renderDiscoveryBuilder(); }
+        function clearDiscoveryBox() { discoveryBox = []; renderDiscoveryBuilder(); }
+
+        function addCustomDiscoveryToCart() {
+            if (discoveryBox.length < 5) return notifyToast(`Yana ${5 - discoveryBox.length} ta atir tanlang!`);
+            const namesList = discoveryBox.map(id => miniScents.find(x => x.id === id).name).join(", ");
+            cart.push({ id: 901, name: `Shaxsiy Discovery Set (5x15ml): [${namesList}]`, price: 125, img: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80", qty: 1 });
+            saveSharedState();
+            openDrawer("cartDrawer");
+        }
+
+        function renderEngraveBottleCards() {
+            document.getElementById("engraveBottleCards").innerHTML = engravableBottles.map((b, i) => `
+                <button type="button" onclick="selectEngraveBottle(${i})" class="p-2 rounded-2xl border-2 text-left transition ${i === activeEngraveBottleIdx ? 'border-gold bg-gold/15' : 'border-gold/20 bg-gray-100 dark:bg-charcoal'}">
+                    <img src="${b.img}" class="w-full h-20 object-cover rounded-xl mb-1.5">
+                    <p class="text-[11px] font-bold dark:text-white truncate">${b.short}</p>
+                    <p class="text-[10px] text-gold font-bold">$${b.basePrice + b.engraveFee}</p>
+                </button>`).join("");
+        }
+
+        function selectEngraveBottle(idx) { activeEngraveBottleIdx = idx; renderEngraveBottleCards(); updateEngravingPreview(); }
+
+        function updateEngravingPreview() {
+            const bottle = engravableBottles[activeEngraveBottleIdx];
+            const rawText = document.getElementById("engraveInputText").value.trim() || "L'ÉLIXIR VIP";
+            const cardNote = document.getElementById("engraveCardNote").value.trim() || "Maxsus sovg'a";
+            document.getElementById("engravePreviewImg").src = bottle.img;
+            document.getElementById("engraveBottleTitle").textContent = bottle.name;
+            document.getElementById("liveEngravedText").textContent = rawText.toUpperCase();
+            document.getElementById("liveGiftNotePreview").textContent = `"${cardNote}"`;
+            document.getElementById("engraveTotalPriceBadge").textContent = `$${bottle.basePrice + bottle.engraveFee}.00`;
+        }
+
+        function addEngravedBottleToCart(openCheckout = false) {
+            const bottle = engravableBottles[activeEngraveBottleIdx];
+            const rawText = document.getElementById("engraveInputText").value.trim() || "VIP";
+            const total = bottle.basePrice + bottle.engraveFee;
+            cart.push({ id: bottle.id, name: `${bottle.name} (Gravyura: "${rawText.toUpperCase()}")`, price: total, img: bottle.img, qty: 1 });
+            saveSharedState();
+            if (openCheckout) openOrderModal(); else openDrawer("cartDrawer");
+        }
+
+        function renderGiftSets() {
+            document.getElementById("giftSetsGrid").innerHTML = luxuryGiftSets.map(g => `
+                <div class="coffret-card bg-white dark:bg-charcoal rounded-3xl overflow-hidden border border-gold/25 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-72 overflow-hidden bg-gray-900">
+                            <img src="${g.img}" class="card-img w-full h-full object-cover" onerror="fallbackPerfumeImg(this, '${g.name}')">
+                            <span class="absolute top-4 left-4 bg-obsidian/90 text-gold border border-gold/40 text-[10px] font-bold uppercase px-3 py-1 rounded-full">${g.badge}</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-serif text-2xl font-bold dark:text-white mb-2">${g.name}</h3>
+                            <p class="text-xs text-gray-400">${g.contents}</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-3 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
+                        <span class="font-serif text-2xl font-bold text-gold">$${g.price}.00</span>
+                        <button onclick="addGiftSetToCart(${g.id})" class="px-5 py-2.5 rounded-xl bg-gold text-black font-bold text-xs uppercase"><i class="fas fa-bag-shopping mr-1"></i>Savatga</button>
+                    </div>
+                </div>`).join("");
+        }
+
+        function addGiftSetToCart(id) {
+            const g = luxuryGiftSets.find(x => x.id === id);
+            if (!g) return;
+            cart.push({ id: g.id, name: g.name, price: g.price, img: g.img, qty: 1 });
+            saveSharedState();
+            notifyToast(`${g.name} savatga qo'shildi!`);
+        }
+
+        function updateCartItemQty(idx, delta) { if (!cart[idx]) return; cart[idx].qty += delta; if (cart[idx].qty <= 0) cart.splice(idx, 1); saveSharedState(); }
+        function saveSharedState() { localStorage.setItem("elixir_cart", JSON.stringify(cart)); localStorage.setItem("elixir_wish", JSON.stringify(wishlist)); syncDrawersUI(); }
+
+        function syncDrawersUI() {
+            document.getElementById("cartCountBadge").textContent = cart.reduce((s, i) => s + i.qty, 0);
+            document.getElementById("wishCountBadge").textContent = wishlist.length;
+            const cartList = document.getElementById("cartDrawerList");
+            if (cart.length === 0) {
+                cartList.innerHTML = `<p class="text-center text-gray-400 py-12 text-sm">Savatingiz hozircha bo'sh</p>`;
+                document.getElementById("cartDrawerTotal").textContent = "$0.00";
+            } else {
+                let total = 0;
+                cartList.innerHTML = cart.map((item, idx) => { total += item.price * item.qty; return `<div class="flex items-center gap-3 p-3 rounded-2xl bg-gray-100 dark:bg-obsidian border border-gold/20"><img src="${item.img}" class="w-16 h-16 rounded-xl object-cover"><div class="flex-1"><h4 class="font-serif font-bold text-sm dark:text-white">${item.name}</h4><p class="text-gold text-xs font-bold">$${item.price} x ${item.qty}</p></div></div>`; }).join("");
+                document.getElementById("cartDrawerTotal").textContent = `$${total.toFixed(2)}`;
+            }
+        }
+
+        async function postToTelegramBot(htmlMsg) {
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ chat_id: CHAT_ID, text: htmlMsg, parse_mode: "HTML" }) });
+                return res.ok;
+            } catch (e) { return false; }
+        }
+        function openOrderModal() { if (cart.length === 0) return notifyToast("Avval savatga atir qo'shing!"); closeDrawers(); const m = document.getElementById("orderModal"); m.classList.remove("hidden"); m.classList.add("flex"); }
+        function closeOrderModal() { document.getElementById("orderModal").classList.add("hidden"); document.getElementById("orderModal").classList.remove("flex"); }
+
+        async function submitOrderToTelegramBot(e) {
+            e.preventDefault();
+            const name = document.getElementById("orderName").value.trim();
+            const phone = document.getElementById("orderPhone").value.trim();
+            const addr = document.getElementById("orderAddress").value.trim();
+            const orderId = "ELX-" + Math.floor(100000 + Math.random() * 900000);
+            let total = 0;
+            const lines = cart.map((i, idx) => { const sub = i.price * i.qty; total += sub; return `${idx + 1}. <b>${i.name}</b> = <b>$${sub}</b>`; }).join("\n");
+            const ok = await postToTelegramBot(`🎁 <b>VIP KOLLEKSIYA BUYURTMASI (#${orderId})</b>\n👤 <b>Mijoz:</b> ${name}\n📞 <b>Telefon:</b> <code>${phone}</code>\n📍 <b>Manzil:</b> ${addr}\n\n🛍 <b>Tarkib:</b>\n${lines}\n\n💰 <b>JAMI: $${total.toFixed(2)}</b>`);
+            if (ok) { cart = []; saveSharedState(); closeOrderModal(); e.target.reset(); notifyToast(`Buyurtma #${orderId} botga yuborildi!`); }
+        }
+
+        function initThemeState() {
+            const saved = localStorage.getItem("elixir_theme") || "dark";
+            document.documentElement.classList.toggle("dark", saved === "dark");
+            document.getElementById("themeToggleBtn").addEventListener("click", () => { const isDark = document.documentElement.classList.toggle("dark"); localStorage.setItem("elixir_theme", isDark ? "dark" : "light"); });
+        }
+        function initLangState() {
+            const sel = document.getElementById("langSelect"); sel.value = currentLang;
+            sel.addEventListener("change", (e) => { currentLang = e.target.value; localStorage.setItem("elixir_lang", currentLang); });
+        }
+        function openDrawer(id) { document.getElementById("drawerBackdrop").classList.remove("hidden"); document.getElementById(id).classList.remove("translate-x-full"); }
+        function closeDrawers() { document.getElementById("drawerBackdrop").classList.add("hidden"); document.getElementById("cartDrawer").classList.add("translate-x-full"); document.getElementById("wishDrawer").classList.add("translate-x-full"); }
+        function notifyToast(msg) {
+            const box = document.getElementById("toastContainer");
+            const el = document.createElement("div");
+            el.className = "px-5 py-3.5 rounded-2xl bg-obsidian text-white border border-gold shadow-2xl flex items-center gap-3 text-xs font-bold";
+            el.innerHTML = `<i class="fas fa-circle-check text-gold text-base"></i><span>${msg}</span>`;
+            box.appendChild(el);
+            setTimeout(() => el.remove(), 3200);
+        }
+    </script>
+</body>
+</html>
